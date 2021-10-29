@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/menu creditos idioma instrucoes.ogg-28896c344082cf50b66635ee0c84cc2f.oggstr"
+
+[deps]
+
+source_file="res://sfx/menu creditos idioma instrucoes.ogg"
+dest_files=[ "res://.import/menu creditos idioma instrucoes.ogg-28896c344082cf50b66635ee0c84cc2f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

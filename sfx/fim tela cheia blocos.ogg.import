@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fim tela cheia blocos.ogg-2c1ca415d12e26e3f12bd239be7b5169.oggstr"
+
+[deps]
+
+source_file="res://sfx/fim tela cheia blocos.ogg"
+dest_files=[ "res://.import/fim tela cheia blocos.ogg-2c1ca415d12e26e3f12bd239be7b5169.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
