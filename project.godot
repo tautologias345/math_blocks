@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="Math Blocks"
+run/main_scene="res://scenes/Menu.tscn"
+config/icon="res://Godot_icon.png"
+
+[display]
+
+window/size/width=1086
+window/size/height=612
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[gdnative]
+
+singletons=[  ]
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[locale]
+
+fallback="pt_BR"
+
+[logging]
+
+file_logging/enable_file_logging=true
+
+[physics]
+
+common/enable_pause_aware_picking=true

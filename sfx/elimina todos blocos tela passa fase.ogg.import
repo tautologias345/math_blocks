@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/elimina todos blocos tela passa fase.ogg-f026c47f76304aec5b0eb37cbf596d3a.oggstr"
+
+[deps]
+
+source_file="res://sfx/elimina todos blocos tela passa fase.ogg"
+dest_files=[ "res://.import/elimina todos blocos tela passa fase.ogg-f026c47f76304aec5b0eb37cbf596d3a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

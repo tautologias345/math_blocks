@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/elimina blocos selecionados.ogg-82ff6a1f24a069e5506fc80aaa39b99c.oggstr"
+
+[deps]
+
+source_file="res://sfx/elimina blocos selecionados.ogg"
+dest_files=[ "res://.import/elimina blocos selecionados.ogg-82ff6a1f24a069e5506fc80aaa39b99c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
