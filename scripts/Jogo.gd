@@ -507,33 +507,13 @@ func _input(event):
 					while contador < 25:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
-				if get_node(nodos[0]).pode_selecionar && get_node(nodos[1]).pode_selecionar && get_node(nodos[2]).pode_selecionar && get_node(nodos[3]).pode_selecionar && get_node(nodos[4]).pode_selecionar && !get_node(nodos[5]).pode_selecionar && !get_node(nodos[6]).pode_selecionar && !get_node(nodos[7]).pode_selecionar && !get_node(nodos[8]).pode_selecionar && !get_node(nodos[9]).pode_selecionar:
-					while contador < 25:
-						get_node(nodos[contador]).blocos_queda.clear()
-						get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
-						contador += 1
-				elif get_node(nodos[5]).pode_selecionar && get_node(nodos[6]).pode_selecionar && get_node(nodos[7]).pode_selecionar && get_node(nodos[8]).pode_selecionar && get_node(nodos[9]).pode_selecionar && !get_node(nodos[10]).pode_selecionar && !get_node(nodos[11]).pode_selecionar && !get_node(nodos[12]).pode_selecionar && !get_node(nodos[13]).pode_selecionar && !get_node(nodos[14]).pode_selecionar:
-					while contador < 25:
-						get_node(nodos[contador]).blocos_queda.clear()
-						get_node(nodos[contador]).blocos_queda.append_array([10, 11, 12, 13, 14])
-						contador += 1
-				elif get_node(nodos[10]).pode_selecionar && get_node(nodos[11]).pode_selecionar && get_node(nodos[12]).pode_selecionar && get_node(nodos[13]).pode_selecionar && get_node(nodos[14]).pode_selecionar && !get_node(nodos[15]).pode_selecionar && !get_node(nodos[16]).pode_selecionar && !get_node(nodos[17]).pode_selecionar && !get_node(nodos[18]).pode_selecionar && !get_node(nodos[19]).pode_selecionar:
-					while contador < 25:
-						get_node(nodos[contador]).blocos_queda.clear()
-						get_node(nodos[contador]).blocos_queda.append_array([15, 16, 17, 18, 19])
-						contador += 1
-				elif get_node(nodos[15]).pode_selecionar && get_node(nodos[16]).pode_selecionar && get_node(nodos[17]).pode_selecionar && get_node(nodos[18]).pode_selecionar && get_node(nodos[19]).pode_selecionar && !get_node(nodos[20]).pode_selecionar && !get_node(nodos[21]).pode_selecionar && !get_node(nodos[22]).pode_selecionar && !get_node(nodos[23]).pode_selecionar && !get_node(nodos[20]).pode_selecionar:
-					while contador < 25:
-						get_node(nodos[contador]).blocos_queda.clear()
-						get_node(nodos[contador]).blocos_queda.append_array([20, 21, 22, 23, 24])
-						contador += 1
-			erros += 1
-			numero_aneis_selecionados = 0
-			numero_aneis_requerido = randi() % 28 + 1 #número aleatório de 1 a 28
-			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Que pena! Você selecionou blocos com a soma das multiplicidades > o número a ser removido! Então imediatamente o jogo adicionou mais blocos à tela!"
-			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/erro selecao maior que requerido.ogg")
-			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
-			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start()
+					erros += 1
+					numero_aneis_selecionados = 0
+					numero_aneis_requerido = randi() % 28 + 1 #número aleatório de 1 a 28
+					get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Que pena! Você selecionou blocos com a soma das multiplicidades > o número a ser removido! Então imediatamente o jogo adicionou mais blocos à tela!"
+					get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/erro selecao maior que requerido.ogg")
+					get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
+					get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start()
 		elif numero_aneis_selecionados == numero_aneis_requerido:
 			if get_node(self.caminho_borda_verde).visible:
 				var contador = 0
@@ -549,9 +529,9 @@ func _input(event):
 								get_node(nodos[contador]).blocos_queda.append(contador_queda)
 							contador_queda += 5
 					contador += 1
-				self.mode = RigidBody.MODE_STATIC
-				get_node(self.caminho_borda_verde).hide()
-				self.translation = Vector3(0, 0, 0)
+			self.mode = RigidBody.MODE_STATIC
+			get_node(self.caminho_borda_verde).hide()
+			self.translation = Vector3(0, 0, 0)
 			pontuacao += numero_aneis_selecionados
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop() #para de contar os 10 segundos da queda dos blocos
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Parabéns! Você fechou a seleção dos blocos com a soma das multiplicidades = o número a ser removido! Então você removeu os blocos selecionados!"
