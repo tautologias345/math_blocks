@@ -507,13 +507,13 @@ func _input(event):
 					while contador < 25:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
-					erros += 1
-					numero_aneis_selecionados = 0
-					numero_aneis_requerido = randi() % 28 + 1 #número aleatório de 1 a 28
-					get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Que pena! Você selecionou blocos com a soma das multiplicidades > o número a ser removido! Então imediatamente o jogo adicionou mais blocos à tela!"
-					get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/erro selecao maior que requerido.ogg")
-					get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
-					get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start()
+				erros += 1
+				numero_aneis_selecionados = 0
+				numero_aneis_requerido = randi() % 28 + 1 #número aleatório de 1 a 28
+				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Que pena! Você selecionou blocos com a soma das multiplicidades > o número a ser removido! Então imediatamente o jogo adicionou mais blocos à tela!"
+				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/erro selecao maior que requerido.ogg")
+				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
+				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start()
 		elif numero_aneis_selecionados == numero_aneis_requerido:
 			if get_node(self.caminho_borda_verde).visible:
 				var contador = 0
@@ -548,12 +548,6 @@ func _input(event):
 					tela_vazia = true
 					break
 			if tela_vazia:
-				while contador < 25:
-					if get_node(nodos[contador]).pode_selecionar:
-						break
-					else:
-						contador += 1
-			if contador >= 25:
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Parabéns! Você removeu todos os blocos da tela do jogo! Então você passou para a fase seguinte! O jogo agora fica um pouco mais difícil!"
 				fase += 1
