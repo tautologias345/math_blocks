@@ -410,6 +410,7 @@ func shuffleList(list):
 		indexList.remove(x)
 	return shuffledList
 
+
 #verifica se todas as linhas selecionáveis são inteiras
 func linhasInteiras():
 	if get_node(nodos[0]).pode_selecionar && get_node(nodos[1]).pode_selecionar && get_node(nodos[2]).pode_selecionar && get_node(nodos[3]).pode_selecionar && get_node(nodos[4]).pode_selecionar:
@@ -506,6 +507,25 @@ func _input(event):
 					while contador < 25:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
+				if get_node(nodos[0]).pode_selecionar && get_node(nodos[1]).pode_selecionar && get_node(nodos[2]).pode_selecionar && get_node(nodos[3]).pode_selecionar && get_node(nodos[4]).pode_selecionar && !get_node(nodos[5]).pode_selecionar && !get_node(nodos[6]).pode_selecionar && !get_node(nodos[7]).pode_selecionar && !get_node(nodos[8]).pode_selecionar && !get_node(nodos[9]).pode_selecionar:
+					while contador < 25:
+						get_node(nodos[contador]).blocos_queda.clear()
+						get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
+						contador += 1
+				elif get_node(nodos[5]).pode_selecionar && get_node(nodos[6]).pode_selecionar && get_node(nodos[7]).pode_selecionar && get_node(nodos[8]).pode_selecionar && get_node(nodos[9]).pode_selecionar && !get_node(nodos[10]).pode_selecionar && !get_node(nodos[11]).pode_selecionar && !get_node(nodos[12]).pode_selecionar && !get_node(nodos[13]).pode_selecionar && !get_node(nodos[14]).pode_selecionar:
+					while contador < 25:
+						get_node(nodos[contador]).blocos_queda.clear()
+						get_node(nodos[contador]).blocos_queda.append_array([10, 11, 12, 13, 14])
+						contador += 1
+				elif get_node(nodos[10]).pode_selecionar && get_node(nodos[11]).pode_selecionar && get_node(nodos[12]).pode_selecionar && get_node(nodos[13]).pode_selecionar && get_node(nodos[14]).pode_selecionar && !get_node(nodos[15]).pode_selecionar && !get_node(nodos[16]).pode_selecionar && !get_node(nodos[17]).pode_selecionar && !get_node(nodos[18]).pode_selecionar && !get_node(nodos[19]).pode_selecionar:
+					while contador < 25:
+						get_node(nodos[contador]).blocos_queda.clear()
+						get_node(nodos[contador]).blocos_queda.append_array([15, 16, 17, 18, 19])
+						contador += 1
+				elif get_node(nodos[15]).pode_selecionar && get_node(nodos[16]).pode_selecionar && get_node(nodos[17]).pode_selecionar && get_node(nodos[18]).pode_selecionar && get_node(nodos[19]).pode_selecionar && !get_node(nodos[20]).pode_selecionar && !get_node(nodos[21]).pode_selecionar && !get_node(nodos[22]).pode_selecionar && !get_node(nodos[23]).pode_selecionar && !get_node(nodos[20]).pode_selecionar:
+					while contador < 25:
+						get_node(nodos[contador]).blocos_queda.clear()
+						get_node(nodos[contador]).blocos_queda.append_array([20, 21, 22, 23, 24])
 						contador += 1
 			erros += 1
 			numero_aneis_selecionados = 0
@@ -548,6 +568,12 @@ func _input(event):
 					tela_vazia = true
 					break
 			if tela_vazia:
+				while contador < 25:
+					if get_node(nodos[contador]).pode_selecionar:
+						break
+					else:
+						contador += 1
+			if contador >= 25:
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Parabéns! Você removeu todos os blocos da tela do jogo! Então você passou para a fase seguinte! O jogo agora fica um pouco mais difícil!"
 				fase += 1
