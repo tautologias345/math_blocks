@@ -2,9 +2,6 @@ extends RigidBody
 
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-# var arvr = null
 #export é para pegar a variável de outros arquivos
 export var nodos = []
 export var caminho_borda_verde = ""
@@ -24,7 +21,6 @@ var pontuacao = 0
 var erros = 0
 var multiplicidade = 0
 var info_text = "" #alterar a informação do jogo com a formatação adequada
-#var arvr = null
 
 # entra na cena
 # Called when the node enters the scene tree for the first time.
@@ -95,7 +91,7 @@ func _ready():
 		contador += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 #	pass
 	var contador = 0
 	if self.translation.y >= -5.7 && self.translation.y <= -5.5:
@@ -144,272 +140,56 @@ func _process(delta):
 				get_node(nodos[contador]).linha = 5
 			contador += 1
 	if numero_aneis_requerido < 10:
-		if fase < 10:
-			if pontuacao < 10:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 1000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 10000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+		if pontuacao < 10:
+			if erros < 10:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+			elif erros < 100:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 00%d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-		elif fase < 100:
-			if pontuacao < 10:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 1000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 10000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+		elif pontuacao < 100:
+			if erros < 10:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+			elif erros < 100:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase 0%d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-		else:
-			if pontuacao < 10:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 1000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 10000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+		elif pontuacao < 1000:
+			if erros < 10:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+			elif erros < 100:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
 	else:
-		if fase < 10:
-			if pontuacao < 10:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 1000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 10000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+		if pontuacao < 10:
+			if erros < 10:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+			elif erros < 100:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 00%d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-		elif fase < 100:
-			if pontuacao < 10:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 1000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 10000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+		elif pontuacao < 100:
+			if erros < 10:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+			elif erros < 100:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase 0%d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-		else:
-			if pontuacao < 10:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 1000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 10000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-			elif pontuacao < 100000:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+		elif pontuacao < 1000:
+			if erros < 10:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+			elif erros < 100:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				if erros < 10:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				elif erros < 100:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
-				else:
-					info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/Info").set_text(info_text)
 
 # ordena um vetor aleatoriamente
 func shuffleList(list):
 	var shuffledList = [] 
 	var indexList = range(list.size())
-	for i in range(list.size()):
+	for _i in range(list.size()):
 		var x = randi()%indexList.size()
 		shuffledList.append(list[indexList[x]])
 		indexList.remove(x)

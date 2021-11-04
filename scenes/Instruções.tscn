@@ -27,7 +27,7 @@ margin_top = 78.0
 margin_right = 797.0
 margin_bottom = 448.0
 custom_fonts/font = SubResource( 1 )
-text = "Clique em um bloco para selecioná-lo. Clique no bloco selecionado para desselecioná-lo. A borda verde fica nos blocos selecionados."
+text = "Clique em um bloco para selecioná-lo. Clique no bloco selecionado para desselecioná-lo."
 align = 1
 valign = 1
 autowrap = true
@@ -36,9 +36,9 @@ __meta__ = {
 }
 
 [node name="Button_Voltar" type="Button" parent="."]
-margin_left = 547.0
+margin_left = 540.0
 margin_top = 495.0
-margin_right = 633.0
+margin_right = 626.0
 margin_bottom = 533.0
 custom_fonts/font = SubResource( 2 )
 text = "Voltar"
