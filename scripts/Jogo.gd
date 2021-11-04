@@ -417,7 +417,7 @@ func shuffleList(list):
 
 
 #verifica se todas as linhas selecionáveis são inteiras
-func linhasInteiras():
+func linhas_inteiras():
 	if get_node(nodos[0]).pode_selecionar && get_node(nodos[1]).pode_selecionar && get_node(nodos[2]).pode_selecionar && get_node(nodos[3]).pode_selecionar && get_node(nodos[4]).pode_selecionar:
 		if get_node(nodos[5]).pode_selecionar && get_node(nodos[6]).pode_selecionar && get_node(nodos[7]).pode_selecionar && get_node(nodos[8]).pode_selecionar && get_node(nodos[9]).pode_selecionar:
 			if get_node(nodos[10]).pode_selecionar && get_node(nodos[11]).pode_selecionar && get_node(nodos[12]).pode_selecionar && get_node(nodos[13]).pode_selecionar && get_node(nodos[14]).pode_selecionar:
@@ -487,28 +487,28 @@ func _input(event):
 			var contador = 0
 			while contador < 25:
 				if contador in get_node(nodos[contador]).blocos_queda:
-					if !get_node(nodos[contador]).linha_inteira:
+					if !get_node(nodos[contador]).linhas_inteiras():
 						tem_queda = true
 					get_node(nodos[contador]).mode = RigidBody.MODE_RIGID
 				contador += 1
 			contador = 0
 			if !tem_queda:
-				if get_node(nodos[15]).pode_selecionar && get_node(nodos[15]).linha_inteira:
+				if get_node(nodos[15]).pode_selecionar && get_node(nodos[15]).linhas_inteiras():
 					while contador < 25:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([20, 21, 22, 23, 24])
 						contador += 1
-				elif get_node(nodos[10]).pode_selecionar && get_node(nodos[10]).linha_inteira:
+				elif get_node(nodos[10]).pode_selecionar && get_node(nodos[10]).linhas_inteiras():
 					while contador < 25:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([15, 16, 17, 18, 19])
 						contador += 1
-				elif get_node(nodos[5]).pode_selecionar && get_node(nodos[5]).linha_inteira:
+				elif get_node(nodos[5]).pode_selecionar && get_node(nodos[5]).linhas_inteiras():
 					while contador < 25:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([10, 11, 12, 13, 14])
 						contador += 1
-				elif get_node(nodos[0]).pode_selecionar && get_node(nodos[0]).linha_inteira:
+				elif get_node(nodos[0]).pode_selecionar && get_node(nodos[0]).linhas_inteiras():
 					while contador < 25:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
