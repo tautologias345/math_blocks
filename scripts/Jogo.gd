@@ -93,29 +93,6 @@ func _ready():
 			get_node(nodos[contador]).x_max = 295
 			get_node(nodos[contador]).coluna = 5
 		contador += 1
-	contador = 0
-	while contador < 25:
-		if contador < 5:
-			get_node(nodos[contador]).y_min = 374
-			get_node(nodos[contador]).y_max = 405
-			get_node(nodos[contador]).linha = 1 
-		elif contador < 10:
-			get_node(nodos[contador]).y_min = 333
-			get_node(nodos[contador]).y_max = 367
-			get_node(nodos[contador]).linha = 2
-		elif contador < 15:
-			get_node(nodos[contador]).y_min = 294
-			get_node(nodos[contador]).y_max = 329
-			get_node(nodos[contador]).linha = 3
-		elif contador < 20:
-			get_node(nodos[contador]).y_min = 255
-			get_node(nodos[contador]).y_max = 291
-			get_node(nodos[contador]).linha = 4
-		else:
-			get_node(nodos[contador]).y_min = 216
-			get_node(nodos[contador]).y_max = 253
-			get_node(nodos[contador]).linha = 5
-		contador += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -143,6 +120,29 @@ func _process(delta):
 		self.linha = 5
 	else:
 		self.pode_selecionar = false
+		contador = 0
+		while contador < 25:
+			if contador < 5:
+				get_node(nodos[contador]).y_min = 374
+				get_node(nodos[contador]).y_max = 405
+				get_node(nodos[contador]).linha = 1 
+			elif contador < 10:
+				get_node(nodos[contador]).y_min = 333
+				get_node(nodos[contador]).y_max = 367
+				get_node(nodos[contador]).linha = 2
+			elif contador < 15:
+				get_node(nodos[contador]).y_min = 294
+				get_node(nodos[contador]).y_max = 329
+				get_node(nodos[contador]).linha = 3
+			elif contador < 20:
+				get_node(nodos[contador]).y_min = 255
+				get_node(nodos[contador]).y_max = 291
+				get_node(nodos[contador]).linha = 4
+			else:
+				get_node(nodos[contador]).y_min = 216
+				get_node(nodos[contador]).y_max = 253
+				get_node(nodos[contador]).linha = 5
+			contador += 1
 	if numero_aneis_requerido < 10:
 		if fase < 10:
 			if pontuacao < 10:
