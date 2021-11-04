@@ -13,15 +13,15 @@ export var linha = 0
 export var coluna = 0
 export var blocos_queda = []
 export var pode_selecionar = false
+export var x_min = 0 #posição horizontal mínima do ponteiro do mouse
+export var x_max = 0 #posição horizontal máxima do ponteiro do mouse
+export var y_min = 0 #posição vertical mínima do ponteiro do mouse
+export var y_max = 0 #posição vertical máxima do ponteiro do mouse
 var numero_aneis_requerido = 1
 var numero_aneis_selecionados = 0
 var fase = 1
 var pontuacao = 0
 var erros = 0
-var x_min = 0 #posição horizontal mínima do ponteiro do mouse
-var x_max = 0 #posição horizontal máxima do ponteiro do mouse
-var y_min = 0 #posição vertical mínima do ponteiro do mouse
-var y_max = 0 #posição vertical máxima do ponteiro do mouse
 var multiplicidade = 0
 var info_text = "" #alterar a informação do jogo com a formatação adequada
 #var arvr = null
@@ -33,6 +33,11 @@ func _ready():
 	var contador = 0
 	while contador < 25:
 		get_node(nodos[contador]).blocos_queda.append_array([0, 1, 2, 3, 4])
+	contador = 0
+	while contador < 25:
+		if contador in get_node(nodos[contador]).blocos_queda:
+			get_node(nodos[contador]).mode = RigidBody.MODE_RIGID
+		contador += 1
 	var materiais = []
 	contador = 0
 	while contador < 25:
@@ -65,6 +70,52 @@ func _ready():
 		elif get_node(get_node(nodos[contador]).caminho_forma).get_surface_material(0) == load("res://materials/mat_bloco_nonuplo.tres"):
 			get_node(nodos[contador]).multiplicidade = 9
 		contador += 1
+	contador = 0
+	while contador < 25:
+		if contador % 5 == 0:
+			get_node(nodos[contador]).x_min = 46
+			get_node(nodos[contador]).x_max = 77
+			get_node(nodos[contador]).coluna = 1
+		elif contador % 5 == 1:
+			get_node(nodos[contador]).x_min = 100
+			get_node(nodos[contador]).x_max = 133
+			get_node(nodos[contador]).coluna = 2
+		elif contador % 5 == 2:
+			get_node(nodos[contador]).x_min = 156
+			get_node(nodos[contador]).x_max = 187
+			get_node(nodos[contador]).coluna = 3
+		elif contador % 5 == 3:
+			get_node(nodos[contador]).x_min = 211
+			get_node(nodos[contador]).x_max = 241
+			get_node(nodos[contador]).coluna = 4
+		elif contador % 5 == 4:
+			get_node(nodos[contador]).x_min = 265
+			get_node(nodos[contador]).x_max = 295
+			get_node(nodos[contador]).coluna = 5
+		contador += 1
+	contador = 0
+	while contador < 25:
+		if contador < 5:
+			get_node(nodos[contador]).y_min = 374
+			get_node(nodos[contador]).y_max = 405
+			get_node(nodos[contador]).linha = 1 
+		elif contador < 10:
+			get_node(nodos[contador]).y_min = 333
+			get_node(nodos[contador]).y_max = 367
+			get_node(nodos[contador]).linha = 2
+		elif contador < 15:
+			get_node(nodos[contador]).y_min = 294
+			get_node(nodos[contador]).y_max = 329
+			get_node(nodos[contador]).linha = 3
+		elif contador < 20:
+			get_node(nodos[contador]).y_min = 255
+			get_node(nodos[contador]).y_max = 291
+			get_node(nodos[contador]).linha = 4
+		else:
+			get_node(nodos[contador]).y_min = 216
+			get_node(nodos[contador]).y_max = 253
+			get_node(nodos[contador]).linha = 5
+		contador += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -90,54 +141,8 @@ func _process(delta):
 		self.y_min = 216
 		self.y_max = 253
 		self.linha = 5
-	elif self.translation.y == 0.0:
+	else:
 		self.pode_selecionar = false
-		contador = 0
-		while contador < 25:
-			if contador < 5:
-				get_node(nodos[contador]).y_min = 374
-				get_node(nodos[contador]).y_max = 405
-				get_node(nodos[contador]).linha = 1 
-			elif contador < 10:
-				get_node(nodos[contador]).y_min = 333
-				get_node(nodos[contador]).y_max = 367
-				get_node(nodos[contador]).linha = 2
-			elif contador < 15:
-				get_node(nodos[contador]).y_min = 294
-				get_node(nodos[contador]).y_max = 329
-				get_node(nodos[contador]).linha = 3
-			elif contador < 20:
-				get_node(nodos[contador]).y_min = 255
-				get_node(nodos[contador]).y_max = 291
-				get_node(nodos[contador]).linha = 4
-			else:
-				get_node(nodos[contador]).y_min = 216
-				get_node(nodos[contador]).y_max = 253
-				get_node(nodos[contador]).linha = 5
-			contador += 1
-	contador = 0
-	while contador < 25:
-		if contador % 5 == 0:
-			get_node(nodos[contador]).x_min = 46
-			get_node(nodos[contador]).x_max = 77
-			get_node(nodos[contador]).coluna = 1
-		elif contador % 5 == 1:
-			get_node(nodos[contador]).x_min = 100
-			get_node(nodos[contador]).x_max = 133
-			get_node(nodos[contador]).coluna = 2
-		elif contador % 5 == 2:
-			get_node(nodos[contador]).x_min = 156
-			get_node(nodos[contador]).x_max = 187
-			get_node(nodos[contador]).coluna = 3
-		elif contador % 5 == 3:
-			get_node(nodos[contador]).x_min = 211
-			get_node(nodos[contador]).x_max = 241
-			get_node(nodos[contador]).coluna = 4
-		elif contador % 5 == 4:
-			get_node(nodos[contador]).x_min = 265
-			get_node(nodos[contador]).x_max = 295
-			get_node(nodos[contador]).coluna = 5
-		contador += 1
 	if numero_aneis_requerido < 10:
 		if fase < 10:
 			if pontuacao < 10:
