@@ -64,7 +64,7 @@ func _on_TimerResult_timeout():
 		contador = 0
 		var tela_cheia = false
 		while contador < 25:
-			if get_node(nodos[contador]).telaCheia():
+			if get_node(nodos[contador]).tela_cheia():
 				tela_cheia = true
 				break
 			contador += 1
