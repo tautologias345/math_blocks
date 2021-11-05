@@ -29,6 +29,7 @@ func _ready():
 	var contador = 0
 	while contador < 25:
 		get_node(nodos[contador]).blocos_queda.append_array([0, 1, 2, 3, 4])
+		contador += 1
 	contador = 0
 	while contador < 25:
 		if contador in get_node(nodos[contador]).blocos_queda:
@@ -88,29 +89,6 @@ func _ready():
 			get_node(nodos[contador]).x_min = 265
 			get_node(nodos[contador]).x_max = 295
 			get_node(nodos[contador]).coluna = 5
-		contador += 1
-	contador = 0
-	while contador < 25:
-		if contador < 5:
-			get_node(nodos[contador]).y_min = 374
-			get_node(nodos[contador]).y_max = 405
-			get_node(nodos[contador]).linha = 1 
-		elif contador < 10:
-			get_node(nodos[contador]).y_min = 333
-			get_node(nodos[contador]).y_max = 367
-			get_node(nodos[contador]).linha = 2
-		elif contador < 15:
-			get_node(nodos[contador]).y_min = 294
-			get_node(nodos[contador]).y_max = 329
-			get_node(nodos[contador]).linha = 3
-		elif contador < 20:
-			get_node(nodos[contador]).y_min = 255
-			get_node(nodos[contador]).y_max = 291
-			get_node(nodos[contador]).linha = 4
-		else:
-			get_node(nodos[contador]).y_min = 216
-			get_node(nodos[contador]).y_max = 253
-			get_node(nodos[contador]).linha = 5
 		contador += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -175,31 +153,40 @@ func shuffleList(list):
 
 #verifica se todas as linhas selecionáveis são inteiras
 func linhas_inteiras():
-	if get_node(nodos[0]).pode_selecionar && get_node(nodos[1]).pode_selecionar && get_node(nodos[2]).pode_selecionar && get_node(nodos[3]).pode_selecionar && get_node(nodos[4]).pode_selecionar:
-		if get_node(nodos[5]).pode_selecionar && get_node(nodos[6]).pode_selecionar && get_node(nodos[7]).pode_selecionar && get_node(nodos[8]).pode_selecionar && get_node(nodos[9]).pode_selecionar:
-			if get_node(nodos[10]).pode_selecionar && get_node(nodos[11]).pode_selecionar && get_node(nodos[12]).pode_selecionar && get_node(nodos[13]).pode_selecionar && get_node(nodos[14]).pode_selecionar:
-				if get_node(nodos[15]).pode_selecionar && get_node(nodos[16]).pode_selecionar && get_node(nodos[17]).pode_selecionar && get_node(nodos[18]).pode_selecionar && get_node(nodos[19]).pode_selecionar:
-					if !get_node(nodos[20]).pode_selecionar && !get_node(nodos[21]).pode_selecionar && !get_node(nodos[22]).pode_selecionar && !get_node(nodos[23]).pode_selecionar && !get_node(nodos[24]).pode_selecionar:
-						return true
-	if get_node(nodos[0]).pode_selecionar && get_node(nodos[1]).pode_selecionar && get_node(nodos[2]).pode_selecionar && get_node(nodos[3]).pode_selecionar && get_node(nodos[4]).pode_selecionar:
-		if get_node(nodos[5]).pode_selecionar && get_node(nodos[6]).pode_selecionar && get_node(nodos[7]).pode_selecionar && get_node(nodos[8]).pode_selecionar && get_node(nodos[9]).pode_selecionar:
-			if get_node(nodos[10]).pode_selecionar && get_node(nodos[11]).pode_selecionar && get_node(nodos[12]).pode_selecionar && get_node(nodos[13]).pode_selecionar && get_node(nodos[14]).pode_selecionar:
-				if !get_node(nodos[15]).pode_selecionar && !get_node(nodos[16]).pode_selecionar && !get_node(nodos[17]).pode_selecionar && !get_node(nodos[18]).pode_selecionar && !get_node(nodos[19]).pode_selecionar:
-					if !get_node(nodos[20]).pode_selecionar && !get_node(nodos[21]).pode_selecionar && !get_node(nodos[22]).pode_selecionar && !get_node(nodos[23]).pode_selecionar && !get_node(nodos[24]).pode_selecionar:
-						return true
-	if get_node(nodos[0]).pode_selecionar && get_node(nodos[1]).pode_selecionar && get_node(nodos[2]).pode_selecionar && get_node(nodos[3]).pode_selecionar && get_node(nodos[4]).pode_selecionar:
-		if get_node(nodos[5]).pode_selecionar && get_node(nodos[6]).pode_selecionar && get_node(nodos[7]).pode_selecionar && get_node(nodos[8]).pode_selecionar && get_node(nodos[9]).pode_selecionar:
-			if !get_node(nodos[10]).pode_selecionar && !get_node(nodos[11]).pode_selecionar && !get_node(nodos[12]).pode_selecionar && !get_node(nodos[13]).pode_selecionar && !get_node(nodos[14]).pode_selecionar:
-				if !get_node(nodos[15]).pode_selecionar && !get_node(nodos[16]).pode_selecionar && !get_node(nodos[17]).pode_selecionar && !get_node(nodos[18]).pode_selecionar && !get_node(nodos[19]).pode_selecionar:
-					if !get_node(nodos[20]).pode_selecionar && !get_node(nodos[21]).pode_selecionar && !get_node(nodos[22]).pode_selecionar && !get_node(nodos[23]).pode_selecionar && !get_node(nodos[24]).pode_selecionar:
-						return true
-	if get_node(nodos[0]).pode_selecionar && get_node(nodos[1]).pode_selecionar && get_node(nodos[2]).pode_selecionar && get_node(nodos[3]).pode_selecionar && get_node(nodos[4]).pode_selecionar:
-		if !get_node(nodos[5]).pode_selecionar && !get_node(nodos[6]).pode_selecionar && !get_node(nodos[7]).pode_selecionar && !get_node(nodos[8]).pode_selecionar && !get_node(nodos[9]).pode_selecionar:
-			if !get_node(nodos[10]).pode_selecionar && !get_node(nodos[11]).pode_selecionar && !get_node(nodos[12]).pode_selecionar && !get_node(nodos[13]).pode_selecionar && !get_node(nodos[14]).pode_selecionar:
-				if !get_node(nodos[15]).pode_selecionar && !get_node(nodos[16]).pode_selecionar && !get_node(nodos[17]).pode_selecionar && !get_node(nodos[18]).pode_selecionar && !get_node(nodos[19]).pode_selecionar:
-					if !get_node(nodos[20]).pode_selecionar && !get_node(nodos[21]).pode_selecionar && !get_node(nodos[22]).pode_selecionar && !get_node(nodos[23]).pode_selecionar && !get_node(nodos[24]).pode_selecionar:
-						return true
-	return false
+	var contador = 0
+	var quantidade_linha_quatro = 0
+	var quantidade_linha_tres = 0
+	var quantidade_linha_dois = 0
+	var quantidade_linha_um = 0
+	while contador < 25:
+		if get_node(nodos[contador]).linha == 5 && get_node(nodos[contador]).pode_selecionar:
+			return false
+		contador += 1
+	contador = 0
+	while contador < 25:
+		if get_node(nodos[contador]).linha == 4 && get_node(nodos[contador]).pode_selecionar:
+			if quantidade_linha_quatro < 5:
+				quantidade_linha_quatro += 1
+		contador += 1
+	contador = 0
+	while contador < 25:
+		if get_node(nodos[contador]).linha == 3 && get_node(nodos[contador]).pode_selecionar:
+			if quantidade_linha_tres < 5:
+				quantidade_linha_tres += 1
+		contador += 1
+	contador = 0
+	while contador < 25:
+		if get_node(nodos[contador]).linha == 2 && get_node(nodos[contador]).pode_selecionar:
+			if quantidade_linha_dois < 5:
+				quantidade_linha_dois += 1
+		contador += 1
+	contador = 0
+	while contador < 25:
+		if get_node(nodos[contador]).linha == 1 && get_node(nodos[contador]).pode_selecionar:
+			if quantidade_linha_um < 5:
+				quantidade_linha_um += 1
+		contador += 1
+	return (quantidade_linha_quatro == 5 && quantidade_linha_tres == 5 && quantidade_linha_dois == 5 && quantidade_linha_um == 5) || (quantidade_linha_quatro == 0 && quantidade_linha_tres == 5 && quantidade_linha_dois == 5 && quantidade_linha_um == 5) || (quantidade_linha_quatro == 0 && quantidade_linha_tres == 0 && quantidade_linha_dois == 5 && quantidade_linha_um == 5) || (quantidade_linha_quatro == 0 && quantidade_linha_tres == 0 && quantidade_linha_dois == 0 && quantidade_linha_um == 5)
 
 
 func tela_cheia():
@@ -240,35 +227,27 @@ func _input(event):
 			get_node(self.caminho_borda_verde).hide()
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/caem blocos topo.ogg")
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
-			var tem_queda = false
 			var contador = 0
 			while contador < 25:
-				if contador in get_node(nodos[contador]).blocos_queda:
-					if !get_node(nodos[contador]).linhas_inteiras():
-						tem_queda = true
-					get_node(nodos[contador]).mode = RigidBody.MODE_RIGID
-				contador += 1
-			contador = 0
-			if !tem_queda:
-				if get_node(nodos[15]).pode_selecionar && get_node(nodos[15]).linhas_inteiras():
-					while contador < 25:
+				if get_node(nodos[contador]).pode_selecionar && get_node(nodos[contador]).linhas_inteiras():
+					if get_node(nodos[contador]).linha == 4:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([20, 21, 22, 23, 24])
-						contador += 1
-				elif get_node(nodos[10]).pode_selecionar && get_node(nodos[10]).linhas_inteiras():
-					while contador < 25:
+					elif get_node(nodos[contador]).linha == 3:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([15, 16, 17, 18, 19])
-						contador += 1
-				elif get_node(nodos[5]).pode_selecionar && get_node(nodos[5]).linhas_inteiras():
-					while contador < 25:
+					elif get_node(nodos[contador]).linha == 2:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([10, 11, 12, 13, 14])
-						contador += 1
-				elif get_node(nodos[0]).pode_selecionar && get_node(nodos[0]).linhas_inteiras():
-					while contador < 25:
+					elif get_node(nodos[contador]).linha == 1:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
+				contador += 1
+			contador = 0
+			while contador < 25:
+				if contador in get_node(nodos[contador]).blocos_queda:
+					get_node(nodos[contador]).mode = RigidBody.MODE_RIGID
+				contador += 1
 			erros += 1
 			numero_aneis_selecionados = 0
 			numero_aneis_requerido = randi() % 28 + 1 #número aleatório de 1 a 28
@@ -279,6 +258,7 @@ func _input(event):
 		elif numero_aneis_selecionados == numero_aneis_requerido:
 			if get_node(self.caminho_borda_verde).visible:
 				self.mode = RigidBody.MODE_STATIC
+				self.linha = 0
 				get_node(self.caminho_borda_verde).hide()
 				self.translation = Vector3(0, 0, 0)
 				self.pode_selecionar = false
