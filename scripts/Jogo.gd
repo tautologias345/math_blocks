@@ -89,56 +89,33 @@ func _ready():
 			get_node(nodos[contador]).x_max = 295
 			get_node(nodos[contador]).coluna = 5
 		contador += 1
+	contador = 0
+	while contador < 25:
+		if contador < 5:
+			get_node(nodos[contador]).y_min = 374
+			get_node(nodos[contador]).y_max = 405
+			get_node(nodos[contador]).linha = 1 
+		elif contador < 10:
+			get_node(nodos[contador]).y_min = 333
+			get_node(nodos[contador]).y_max = 367
+			get_node(nodos[contador]).linha = 2
+		elif contador < 15:
+			get_node(nodos[contador]).y_min = 294
+			get_node(nodos[contador]).y_max = 329
+			get_node(nodos[contador]).linha = 3
+		elif contador < 20:
+			get_node(nodos[contador]).y_min = 255
+			get_node(nodos[contador]).y_max = 291
+			get_node(nodos[contador]).linha = 4
+		else:
+			get_node(nodos[contador]).y_min = 216
+			get_node(nodos[contador]).y_max = 253
+			get_node(nodos[contador]).linha = 5
+		contador += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 #	pass
-	var contador = 0
-	if self.translation.y >= -5.7 && self.translation.y <= -5.5:
-		self.y_min = 374
-		self.y_max = 405
-		self.linha = 1
-	elif self.translation.y >= -6.2 && self.translation.y <= -6.1:
-		self.y_min = 333
-		self.y_max = 367
-		self.linha = 2
-	elif self.translation.y >= -6.9 && self.translation.y <= -6.7:
-		self.y_min = 294
-		self.y_max = 329
-		self.linha = 3
-	elif self.translation.y >= -7.6 && self.translation.y <= -7.3:
-		self.y_min = 255
-		self.y_max = 291
-		self.linha = 4
-	elif self.translation.y >= -8.0 && self.translation.y <= -7.8:
-		self.y_min = 216
-		self.y_max = 253
-		self.linha = 5
-	else:
-		self.pode_selecionar = false
-		contador = 0
-		while contador < 25:
-			if contador < 5:
-				get_node(nodos[contador]).y_min = 374
-				get_node(nodos[contador]).y_max = 405
-				get_node(nodos[contador]).linha = 1 
-			elif contador < 10:
-				get_node(nodos[contador]).y_min = 333
-				get_node(nodos[contador]).y_max = 367
-				get_node(nodos[contador]).linha = 2
-			elif contador < 15:
-				get_node(nodos[contador]).y_min = 294
-				get_node(nodos[contador]).y_max = 329
-				get_node(nodos[contador]).linha = 3
-			elif contador < 20:
-				get_node(nodos[contador]).y_min = 255
-				get_node(nodos[contador]).y_max = 291
-				get_node(nodos[contador]).linha = 4
-			else:
-				get_node(nodos[contador]).y_min = 216
-				get_node(nodos[contador]).y_max = 253
-				get_node(nodos[contador]).linha = 5
-			contador += 1
 	if numero_aneis_requerido < 10:
 		if pontuacao < 10:
 			if erros < 10:
@@ -292,15 +269,19 @@ func _input(event):
 					while contador < 25:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
-				erros += 1
-				numero_aneis_selecionados = 0
-				numero_aneis_requerido = randi() % 28 + 1 #número aleatório de 1 a 28
-				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Que pena! Você selecionou blocos com a soma das multiplicidades > o número a ser removido! Então imediatamente o jogo adicionou mais blocos à tela!"
-				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/erro selecao maior que requerido.ogg")
-				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
-				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start()
+			erros += 1
+			numero_aneis_selecionados = 0
+			numero_aneis_requerido = randi() % 28 + 1 #número aleatório de 1 a 28
+			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Que pena! Você selecionou blocos com a soma das multiplicidades > o número a ser removido! Então imediatamente o jogo adicionou mais blocos à tela!"
+			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/erro selecao maior que requerido.ogg")
+			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
+			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start()
 		elif numero_aneis_selecionados == numero_aneis_requerido:
 			if get_node(self.caminho_borda_verde).visible:
+				self.mode = RigidBody.MODE_STATIC
+				get_node(self.caminho_borda_verde).hide()
+				self.translation = Vector3(0, 0, 0)
+				self.pode_selecionar = false
 				var contador = 0
 				while contador < 25:
 					get_node(nodos[contador]).blocos_queda.clear()
@@ -308,15 +289,14 @@ func _input(event):
 				contador = 0
 				while contador < 25:
 					if self == get_node(nodos[contador]):
-						var contador_queda = contador % 5
-						while contador_queda <= contador:
+						var contador_queda = contador
+						while contador_queda <= 5 * self.coluna - 1:
 							if !get_node(nodos[contador]).pode_selecionar:
 								get_node(nodos[contador]).blocos_queda.append(contador_queda)
+							else:
+								self.mode = RigidBody.MODE_RIGID
 							contador_queda += 5
 					contador += 1
-			self.mode = RigidBody.MODE_STATIC
-			get_node(self.caminho_borda_verde).hide()
-			self.translation = Vector3(0, 0, 0)
 			pontuacao += numero_aneis_selecionados
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop() #para de contar os 10 segundos da queda dos blocos
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Parabéns! Você fechou a seleção dos blocos com a soma das multiplicidades = o número a ser removido! Então você removeu os blocos selecionados!"
@@ -344,3 +324,23 @@ func _input(event):
 func _on_RigidBody_body_entered(body):
 	if (body != get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/StaticBody1") && body.coluna == self.coluna) || body == get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/StaticBody1"):
 		self.pode_selecionar = true
+		if body == get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/StaticBody1"):
+			self.y_min = 374
+			self.y_max = 405
+			self.linha = 1 
+		elif body.linha == 1:
+			self.y_min = 333
+			self.y_max = 367
+			self.linha = 2
+		elif body.linha == 2:
+			self.y_min = 294
+			self.y_max = 329
+			self.linha = 3
+		elif body.linha == 3:
+			self.y_min = 255
+			self.y_max = 291
+			self.linha = 4
+		elif body.linha == 4:
+			self.y_min = 216
+			self.y_max = 253
+			self.linha = 5
