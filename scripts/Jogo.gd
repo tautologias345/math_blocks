@@ -97,47 +97,47 @@ func _process(delta):
 	if numero_aneis_requerido < 10:
 		if pontuacao < 10:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
 		elif pontuacao < 100:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-		elif pontuacao < 1000:
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+		else:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
 	else:
 		if pontuacao < 10:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
 		elif pontuacao < 100:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
-		elif pontuacao < 1000:
+				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+		else:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
 			else:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 000%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/Info").set_text(info_text)
 
 # ordena um vetor aleatoriamente
