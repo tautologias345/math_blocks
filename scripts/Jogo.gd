@@ -262,21 +262,21 @@ func _input(event):
 				get_node(self.caminho_borda_verde).hide()
 				self.translation = Vector3(0, 0, 0)
 				self.pode_selecionar = false
-				var contador = 0
-				while contador < 25:
-					get_node(nodos[contador]).blocos_queda.clear()
-					contador += 1
-				contador = 0
-				while contador < 25:
-					if self == get_node(nodos[contador]):
-						var contador_queda = contador
-						while contador_queda <= 5 * self.coluna - 1:
-							if !get_node(nodos[contador]).pode_selecionar:
-								get_node(nodos[contador]).blocos_queda.append(contador_queda)
-							else:
-								self.mode = RigidBody.MODE_RIGID
-							contador_queda += 5
-					contador += 1
+			var contador = 0
+			while contador < 25:
+				get_node(nodos[contador]).blocos_queda.clear()
+				contador += 1
+			contador = 0
+			while contador < 25:
+				if self == get_node(nodos[contador]):
+					var contador_queda = contador
+					while contador_queda <= 5 * self.coluna - 1:
+						if !get_node(nodos[contador]).pode_selecionar:
+							get_node(nodos[contador]).blocos_queda.append(contador_queda)
+						else:
+							self.mode = RigidBody.MODE_RIGID
+						contador_queda += 5
+				contador += 1
 			pontuacao += numero_aneis_selecionados
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop() #para de contar os 10 segundos da queda dos blocos
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Parabéns! Você fechou a seleção dos blocos com a soma das multiplicidades = o número a ser removido! Então você removeu os blocos selecionados!"
@@ -286,7 +286,7 @@ func _input(event):
 			numero_aneis_selecionados = 0
 			numero_aneis_requerido = randi() % 28 + 1
 			#removeu todos os blocos da tela para passar de fase
-			var contador = 0
+			contador = 0
 			var tela_vazia = false
 			while contador < 25:
 				if get_node(nodos[contador]).tela_vazia():
