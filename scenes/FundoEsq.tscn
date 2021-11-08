@@ -36,8 +36,8 @@ margin_left = 24.0
 margin_top = 25.0
 margin_right = 321.0
 margin_bottom = -374.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Número de anéis a ser removido: 01
 
 Fase 001
@@ -59,8 +59,8 @@ margin_left = 49.0
 margin_top = 384.0
 margin_right = 290.0
 margin_bottom = -204.0
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Volume dos Efeitos Sonoros:"
 align = 3
 valign = 1
@@ -74,8 +74,8 @@ margin_left = 73.0
 margin_top = 452.0
 margin_right = 274.0
 margin_bottom = 482.0
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -85,4 +85,4 @@ __meta__ = {
 stream = ExtResource( 4 )
 autoplay = true
 
-[connection signal="item_selected" from="SFXVolume" to="." method="_on_SFXVolume_item_selected"]
+[connection signal="item_selected" from="SFXVolume" to="SFXVolume" method="_on_SFXVolume_item_selected"]
