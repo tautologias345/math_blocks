@@ -22,6 +22,7 @@ var pontuacao = 0
 var erros = 0
 var info_text = "" #alterar a informação do jogo com a formatação adequada
 
+
 # entra na cena
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,11 +30,6 @@ func _ready():
 	var contador = 0
 	while contador < 25:
 		get_node(nodos[contador]).blocos_queda.append_array([0, 1, 2, 3, 4])
-		contador += 1
-	contador = 0
-	while contador < 25:
-		if contador in get_node(nodos[contador]).blocos_queda:
-			get_node(nodos[contador]).mode = RigidBody.MODE_RIGID
 		contador += 1
 	var materiais = []
 	contador = 0
@@ -139,6 +135,15 @@ func _process(delta):
 			else:
 				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: " + str(pontuacao) + "\n\nErros: " + str(erros)
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/Info").set_text(info_text)
+	var contador1 = 0
+	var contador2 = 0
+	while contador1 < 25:
+		while get_node(nodos[contador1]).blocos_queda.size() > 5:
+			get_node(nodos[contador1]).blocos_queda.remove(5)
+		if contador2 in get_node(nodos[contador1]).blocos_queda:
+			get_node(nodos[contador2]).mode = RigidBody.MODE_RIGID
+		contador1 += 1
+		contador2 += 1
 
 
 # ordena um vetor aleatoriamente
@@ -229,45 +234,48 @@ func numero_linhas():
 # chamado quando o jogador pressiona qualquer controle
 func _input(event):
 	if event is InputEventMouseButton && event.is_pressed() && event.button_index == BUTTON_LEFT && get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Você ainda pode selecionar mais blocos, pois a soma atual das multiplicidades < o número a ser removido!" && event.position.x >= self.x_min && event.position.x <= self.x_max && event.position.y >= self.y_min && event.position.y <= self.y_max && self.pode_selecionar:
+		var contador = 0
 		if get_node(self.caminho_borda_verde).visible:
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/desseleciona um bloco.ogg")
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 			get_node(self.caminho_borda_verde).hide()
-			numero_aneis_selecionados -= self.multiplicidade
+			while contador < 25:
+				get_node(nodos[contador]).numero_aneis_selecionados -= self.multiplicidade
+				contador += 1
 		else:
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/seleciona um bloco.ogg")
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 			get_node(self.caminho_borda_verde).show()
-			numero_aneis_selecionados += self.multiplicidade
+			while contador < 25:
+				get_node(nodos[contador]).numero_aneis_selecionados += self.multiplicidade
+				contador += 1
 		if numero_aneis_selecionados > numero_aneis_requerido: #caem imediatamente os blocos
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").stop()
 			get_node(self.caminho_borda_verde).hide()
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/caem blocos topo.ogg")
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
-			var contador = 0
+			contador = 0
 			while contador < 25:
 				if get_node(nodos[contador]).pode_selecionar && get_node(nodos[contador]).linhas_inteiras():
-					if get_node(nodos[contador]).linha == 4:
+					if get_node(nodos[contador]).numero_linhas() == 4:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([20, 21, 22, 23, 24])
-					elif get_node(nodos[contador]).linha == 3:
+					elif get_node(nodos[contador]).numero_linhas() == 3:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([15, 16, 17, 18, 19])
-					elif get_node(nodos[contador]).linha == 2:
+					elif get_node(nodos[contador]).numero_linhas() == 2:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([10, 11, 12, 13, 14])
-					elif get_node(nodos[contador]).linha == 1:
+					elif get_node(nodos[contador]).numero_linhas() == 1:
 						get_node(nodos[contador]).blocos_queda.clear()
 						get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
 				contador += 1
 			contador = 0
 			while contador < 25:
-				if contador in get_node(nodos[contador]).blocos_queda:
-					get_node(nodos[contador]).mode = RigidBody.MODE_RIGID
+				get_node(nodos[contador]).erros += 1
+				get_node(nodos[contador]).numero_aneis_selecionados = 0
+				get_node(nodos[contador]).numero_aneis_requerido = randi() % 28 + 1 #número aleatório de 1 a 28
 				contador += 1
-			erros += 1
-			numero_aneis_selecionados = 0
-			numero_aneis_requerido = randi() % 28 + 1 #número aleatório de 1 a 28
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Que pena! Você selecionou blocos com a soma das multiplicidades > o número a ser removido! Então imediatamente o jogo adicionou mais blocos à tela!"
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/erro selecao maior que requerido.ogg")
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
@@ -279,7 +287,7 @@ func _input(event):
 				get_node(self.caminho_borda_verde).hide()
 				self.translation = Vector3(0, 0, 0)
 				self.pode_selecionar = false
-			var contador = 0
+			contador = 0
 			while contador < 25:
 				get_node(nodos[contador]).blocos_queda.clear()
 				contador += 1
@@ -308,14 +316,20 @@ func _input(event):
 								get_node(nodos[contador_queda4]).blocos_queda.append(contador_queda2)
 							contador_queda4 += 1
 				contador_queda2 += 1
-			pontuacao += numero_aneis_selecionados
+			contador = 0
+			while contador < 25:
+				get_node(nodos[contador]).pontuacao += numero_aneis_selecionados
+				contador += 1
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop() #para de contar os 10 segundos da queda dos blocos
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Parabéns! Você fechou a seleção dos blocos com a soma das multiplicidades = o número a ser removido! Então você removeu os blocos selecionados!"
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start() #inicia a contagem de 5 segundos da frase de resultado
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/elimina blocos selecionados.ogg")
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
-			numero_aneis_selecionados = 0
-			numero_aneis_requerido = randi() % 28 + 1
+			contador = 0
+			while contador < 25:
+				get_node(nodos[contador]).numero_aneis_selecionados = 0
+				get_node(nodos[contador]).numero_aneis_requerido = randi() % 28 + 1
+				contador += 1
 			#removeu todos os blocos da tela para passar de fase
 			contador = 0
 			var tela_vazia = false
@@ -327,6 +341,10 @@ func _input(event):
 			if tela_vazia:
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Parabéns! Você removeu todos os blocos da tela do jogo! Então você passou para a fase seguinte! O jogo agora fica um pouco mais difícil!"
+				contador = 0
+				while contador < 25:
+					get_node(nodos[contador]).fase += 1
+					contador += 1
 				fase += 1
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start()
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/elimina todos blocos tela passa fase.ogg")

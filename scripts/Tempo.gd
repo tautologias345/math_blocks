@@ -27,23 +27,18 @@ func _on_TimerJogo_timeout():
 	var contador = 0
 	while contador < 25:
 		if get_node(nodos[contador]).pode_selecionar && get_node(nodos[contador]).linhas_inteiras():
-			if get_node(nodos[contador]).linha == 4:
+			if get_node(nodos[contador]).numero_linhas() == 4:
 				get_node(nodos[contador]).blocos_queda.clear()
 				get_node(nodos[contador]).blocos_queda.append_array([20, 21, 22, 23, 24])
-			elif get_node(nodos[contador]).linha == 3:
+			elif get_node(nodos[contador]).numero_linhas() == 3:
 				get_node(nodos[contador]).blocos_queda.clear()
 				get_node(nodos[contador]).blocos_queda.append_array([15, 16, 17, 18, 19])
-			elif get_node(nodos[contador]).linha == 2:
+			elif get_node(nodos[contador]).numero_linhas() == 2:
 				get_node(nodos[contador]).blocos_queda.clear()
 				get_node(nodos[contador]).blocos_queda.append_array([10, 11, 12, 13, 14])
-			elif get_node(nodos[contador]).linha == 1:
+			elif get_node(nodos[contador]).numero_linhas() == 1:
 				get_node(nodos[contador]).blocos_queda.clear()
 				get_node(nodos[contador]).blocos_queda.append_array([5, 6, 7, 8, 9])
-		contador += 1
-	contador = 0
-	while contador < 25:
-		if contador in get_node(nodos[contador]).blocos_queda:
-			get_node(nodos[contador]).mode = RigidBody.MODE_RIGID
 		contador += 1
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Que pena! Você esperou 10 segundos após a última adição dos blocos na tela! Então o jogo adicionou mais blocos à tela!"
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start() #inicia a contagem dos 10 segundos
