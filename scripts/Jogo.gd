@@ -233,7 +233,7 @@ func numero_linhas():
 
 # chamado quando o jogador pressiona qualquer controle
 func _input(event):
-	if event is InputEventMouseButton && event.is_pressed() && event.button_index == BUTTON_LEFT && get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Você ainda pode selecionar mais blocos, pois a soma atual das multiplicidades < o número a ser removido!" && event.position.x >= self.x_min && event.position.x <= self.x_max && event.position.y >= self.y_min && event.position.y <= self.y_max && self.pode_selecionar:
+	if ((event is InputEventMouseButton && event.button_index == BUTTON_LEFT) || (event is InputEventScreenTouch && event.get_index() == 1)) && event.is_pressed() && get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Você ainda pode selecionar mais blocos, pois a soma atual das multiplicidades < o número a ser removido!" && event.position.x >= self.x_min && event.position.x <= self.x_max && event.position.y >= self.y_min && event.position.y <= self.y_max && self.pode_selecionar:
 		var contador = 0
 		if get_node(self.caminho_borda_verde).visible:
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/desseleciona um bloco.ogg")
