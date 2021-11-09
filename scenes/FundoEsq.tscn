@@ -40,9 +40,9 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Número de anéis a ser removido: 01
 
-Fase 001
+Fase 1
 
-Pontuação: 000001
+Pontuação: 000
 
 Erros: 000"
 align = 3

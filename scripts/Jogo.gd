@@ -97,48 +97,49 @@ func _process(delta):
 	if numero_aneis_requerido < 10:
 		if pontuacao < 10:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0" + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 00" + str(pontuacao) + "\n\nErros: 00" + str(erros)
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0" + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 00" + str(pontuacao) + "\n\nErros: 0" + str(erros)
 			else:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0" + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 00" + str(pontuacao) + "\n\nErros: " + str(erros)
 		elif pontuacao < 100:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0" + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 0" + str(pontuacao) + "\n\nErros: 00" + str(erros)
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0" + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 0" + str(pontuacao) + "\n\nErros: 0" + str(erros)
 			else:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0" + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 0" + str(pontuacao) + "\n\nErros: " + str(erros)
 		else:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0" + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: " + str(pontuacao) + "\n\nErros: 00" + str(erros)
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0" + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: " + str(pontuacao) + "\n\nErros: 0" + str(erros)
 			else:
-				info_text = "Número de anéis a ser removido: 0%d\n\nFase %d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: 0" + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: " + str(pontuacao) + "\n\nErros: " + str(erros)
 	else:
 		if pontuacao < 10:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 00" + str(pontuacao) + "\n\nErros: 00" + str(erros)
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 00" + str(pontuacao) + "\n\nErros: 0" + str(erros)
 			else:
-				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 00%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 00" + str(pontuacao) + "\n\nErros: " + str(erros)
 		elif pontuacao < 100:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 0" + str(pontuacao) + "\n\nErros: 00" + str(erros)
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0%d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 0" + str(pontuacao) + "\n\nErros: 0" + str(erros)
 			else:
-				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: 0%d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: 0" + str(pontuacao) + "\n\nErros: " + str(erros)
 		else:
 			if erros < 10:
-				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: %d\n\nErros: 00%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: " + str(pontuacao) + "\n\nErros: 00" + str(erros)
 			elif erros < 100:
-				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: %d\n\nErros: 0%d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: " + str(pontuacao) + "\n\nErros: 0" + str(erros)
 			else:
-				info_text = "Número de anéis a ser removido: %d\n\nFase %d\n\nPontuação: %d\n\nErros: %d" % [numero_aneis_requerido, fase, pontuacao, erros]
+				info_text = "Número de anéis a ser removido: " + str(numero_aneis_requerido) + "\n\nFase " + str(fase) + "\n\nPontuação: " + str(pontuacao) + "\n\nErros: " + str(erros)
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/Info").set_text(info_text)
+
 
 # ordena um vetor aleatoriamente
 func shuffleList(list):
@@ -298,13 +299,14 @@ func _input(event):
 				contador_queda2 += 1
 			contador_queda2 = contador_queda3
 			var contador_queda4 = 0
-			while !linhas_inteiras() && contador_queda2 < 25:
-				if get_node(nodos[contador_queda2]).coluna == self.coluna && !get_node(nodos[contador_queda2]).pode_selecionar:
-					contador_queda4 = 0
-					while contador_queda4 < 25:
-						if !(contador_queda2 in get_node(nodos[contador_queda4]).blocos_queda):
-							get_node(nodos[contador_queda4]).blocos_queda.append(contador_queda2)
-						contador_queda4 += 1
+			while contador_queda2 < 25:
+				if !linhas_inteiras():
+					if get_node(nodos[contador_queda2]).coluna == self.coluna && !get_node(nodos[contador_queda2]).pode_selecionar:
+						contador_queda4 = 0
+						while contador_queda4 < 25:
+							if !(contador_queda2 in get_node(nodos[contador_queda4]).blocos_queda):
+								get_node(nodos[contador_queda4]).blocos_queda.append(contador_queda2)
+							contador_queda4 += 1
 				contador_queda2 += 1
 			pontuacao += numero_aneis_selecionados
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop() #para de contar os 10 segundos da queda dos blocos

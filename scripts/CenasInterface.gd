@@ -16,7 +16,6 @@ func _process(delta):
 	pass
 
 
-
 func _on_Button_Voltar_button_up():
 	$SFX.stream = load("res://sfx/menu creditos idioma instrucoes.ogg") #carrega o efeito sonoro
 	$SFX.play() #toca o efeito sonoro
