@@ -25,30 +25,57 @@ func _on_TimerJogo_timeout():
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/caem blocos topo.ogg")
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 	var contador1 = 0
+	var contador2 = 0
+	var a = true
 	while contador1 < 25:
 		if get_node(nodos[contador1]).pode_selecionar && get_node(nodos[contador1]).linhas_inteiras():
-			if get_node(nodos[contador1]).numero_linhas() == 4:
+			if get_node(nodos[contador1]).numero_linhas() == 4 && a:
 				get_node(nodos[contador1]).blocos_queda.clear()
-				get_node(nodos[contador1]).blocos_queda.append_array([20, 21, 22, 23, 24])
-			elif get_node(nodos[contador1]).numero_linhas() == 3:
+				while contador2 < 25:
+					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 10.071:
+						get_node(nodos[contador1]).blocos_queda.append(contador2)
+					contador2 += 1
+				a = false
+			elif get_node(nodos[contador1]).numero_linhas() == 3 && a:
 				get_node(nodos[contador1]).blocos_queda.clear()
-				get_node(nodos[contador1]).blocos_queda.append_array([15, 16, 17, 18, 19])
-			elif get_node(nodos[contador1]).numero_linhas() == 2:
+				while contador2 < 25:
+					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 9.197:
+						get_node(nodos[contador1]).blocos_queda.append(contador2)
+					contador2 += 1
+				a = false
+			elif get_node(nodos[contador1]).numero_linhas() == 2 && a:
 				get_node(nodos[contador1]).blocos_queda.clear()
-				get_node(nodos[contador1]).blocos_queda.append_array([10, 11, 12, 13, 14])
-			elif get_node(nodos[contador1]).numero_linhas() == 1:
+				while contador2 < 25:
+					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 8.306:
+						get_node(nodos[contador1]).blocos_queda.append(contador2)
+					contador2 += 1
+				a = false
+			elif get_node(nodos[contador1]).numero_linhas() == 1 && a:
 				get_node(nodos[contador1]).blocos_queda.clear()
-				get_node(nodos[contador1]).blocos_queda.append_array([5, 6, 7, 8, 9])
+				while contador2 < 25:
+					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 7.328:
+						get_node(nodos[contador1]).blocos_queda.append(contador2)
+					contador2 += 1
+				a = false
 		contador1 += 1
-	var contador2 = 0
+	contador1 = 0
+	while contador1 < 25:
+		while get_node(nodos[contador1]).blocos_queda.size() > 5:
+			get_node(nodos[contador1]).blocos_queda.remove(5)
+		contador1 += 1
+	contador2 = 0
 	var contador3 = 0
 	while contador2 < 25:
-		while get_node(nodos[contador2]).blocos_queda.size() > 5:
-			get_node(nodos[contador2]).blocos_queda.remove(5)
-		if contador3 in get_node(nodos[contador2]).blocos_queda:
-			get_node(nodos[contador3]).mode = RigidBody.MODE_RIGID
+		contador3 = 0
+		while contador3 < 25:
+			if contador3 in get_node(nodos[contador2]).blocos_queda && !get_node(nodos[contador3]).pode_selecionar:
+				get_node(nodos[contador3]).mode = RigidBody.MODE_RIGID
+			contador3 += 1
 		contador2 += 1
-		contador3 += 1
+	contador1 = 0
+	while contador1 < 25:
+		get_node(nodos[contador1]).erros += 1
+		contador1 += 1
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Que pena! Você esperou 10 segundos após a última adição dos blocos na tela! Então o jogo adicionou mais blocos à tela!"
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start() #inicia a contagem dos 10 segundos
 	contador1 = 0
@@ -103,12 +130,19 @@ func _on_TimerJogo_timeout():
 #tempo da frase de resultado de 5 segundos acaba
 func _on_TimerResult_timeout():
 	var contador1 = 0
+	var contador2 = 0
 	if get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Parabéns! Você removeu todos os blocos da tela do jogo! Então você passou para a get_node(nodos[contador1]).fase seguinte! O jogo agora fica um pouco mais difícil!":
 		contador1 = 0
 		while contador1 < 25:
 			get_node(nodos[contador1]).blocos_queda.clear()
-			get_node(nodos[contador1]).blocos_queda.append_array([0, 1, 2, 3, 4])
+			while contador2 < 25:
+				if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 6.367:
+					get_node(nodos[contador1]).blocos_queda.append(contador2)
+				contador2 += 1
 			contador1 += 1
+		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
+		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Você ainda pode selecionar mais blocos, pois a soma atual das multiplicidades < o número a ser removido!"
+		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").start()
 	elif get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Que pena! Você encheu de blocos a tela do jogo! Então o jogo acabou! Jogue novamente quando quiser!":
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/fim tela cheia blocos.ogg")
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
