@@ -34,21 +34,25 @@ func _on_TimerJogo_timeout():
 	while contador1 < 25:
 		if get_node(nodos[contador1]).pode_selecionar && get_node(nodos[contador1]).linhas_inteiras():
 			if get_node(nodos[contador1]).numero_linhas() == 4 && a:
+				contador2 = 0
 				while contador2 < 25:
 					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 10.071:
 						get_node(nodos[contador1]).blocos_queda.append(contador2)
 					contador2 += 1
 			elif get_node(nodos[contador1]).numero_linhas() == 3 && a:
+				contador2 = 0
 				while contador2 < 25:
 					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 9.197:
 						get_node(nodos[contador1]).blocos_queda.append(contador2)
 					contador2 += 1
 			elif get_node(nodos[contador1]).numero_linhas() == 2 && a:
+				contador2 = 0
 				while contador2 < 25:
 					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 8.306:
 						get_node(nodos[contador1]).blocos_queda.append(contador2)
 					contador2 += 1
 			elif get_node(nodos[contador1]).numero_linhas() == 1 && a:
+				contador2 = 0
 				while contador2 < 25:
 					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 7.328:
 						get_node(nodos[contador1]).blocos_queda.append(contador2)
@@ -61,7 +65,7 @@ func _on_TimerJogo_timeout():
 		contador1 += 1
 	contador1 = 0
 	while contador1 < 25:
-		if contador1 in get_node(nodos[contador1]).blocos_queda && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC:
+		if contador1 in get_node(nodos[contador1]).blocos_queda && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && get_node(nodos[contador1]).linha == 0:
 			get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
 		contador1 += 1
 	contador1 = 0
