@@ -27,51 +27,43 @@ func _on_TimerJogo_timeout():
 	var contador1 = 0
 	var contador2 = 0
 	var a = true
+	contador1 = 0
+	while contador1 < 25:
+		get_node(nodos[contador1]).blocos_queda.clear()
+		contador1 += 1
 	while contador1 < 25:
 		if get_node(nodos[contador1]).pode_selecionar && get_node(nodos[contador1]).linhas_inteiras():
 			if get_node(nodos[contador1]).numero_linhas() == 4 && a:
-				get_node(nodos[contador1]).blocos_queda.clear()
 				while contador2 < 25:
 					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 10.071:
 						get_node(nodos[contador1]).blocos_queda.append(contador2)
 					contador2 += 1
-				a = false
 			elif get_node(nodos[contador1]).numero_linhas() == 3 && a:
-				get_node(nodos[contador1]).blocos_queda.clear()
 				while contador2 < 25:
 					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 9.197:
 						get_node(nodos[contador1]).blocos_queda.append(contador2)
 					contador2 += 1
-				a = false
 			elif get_node(nodos[contador1]).numero_linhas() == 2 && a:
-				get_node(nodos[contador1]).blocos_queda.clear()
 				while contador2 < 25:
 					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 8.306:
 						get_node(nodos[contador1]).blocos_queda.append(contador2)
 					contador2 += 1
-				a = false
 			elif get_node(nodos[contador1]).numero_linhas() == 1 && a:
-				get_node(nodos[contador1]).blocos_queda.clear()
 				while contador2 < 25:
 					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 7.328:
 						get_node(nodos[contador1]).blocos_queda.append(contador2)
 					contador2 += 1
-				a = false
 		contador1 += 1
 	contador1 = 0
 	while contador1 < 25:
 		while get_node(nodos[contador1]).blocos_queda.size() > 5:
 			get_node(nodos[contador1]).blocos_queda.remove(5)
 		contador1 += 1
-	contador2 = 0
-	var contador3 = 0
-	while contador2 < 25:
-		contador3 = 0
-		while contador3 < 25:
-			if contador3 in get_node(nodos[contador2]).blocos_queda && !get_node(nodos[contador3]).pode_selecionar:
-				get_node(nodos[contador3]).mode = RigidBody.MODE_RIGID
-			contador3 += 1
-		contador2 += 1
+	contador1 = 0
+	while contador1 < 25:
+		if contador1 in get_node(nodos[contador1]).blocos_queda && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC:
+			get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		contador1 += 1
 	contador1 = 0
 	while contador1 < 25:
 		get_node(nodos[contador1]).erros += 1
