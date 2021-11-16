@@ -86,7 +86,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody01/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody01/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody01/CollisionShape"
-linha = 1
 coluna = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody01"]
@@ -118,7 +117,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody02/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody02/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody02/CollisionShape"
-linha = 1
 coluna = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody02"]
@@ -150,7 +148,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody03/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody03/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody03/CollisionShape"
-linha = 1
 coluna = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody03"]
@@ -182,7 +179,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody04/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody04/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody04/CollisionShape"
-linha = 1
 coluna = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody04"]
@@ -214,7 +210,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody05/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody05/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody05/CollisionShape"
-linha = 1
 coluna = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody05"]
@@ -246,7 +241,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody06/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody06/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody06/CollisionShape"
-linha = 2
 coluna = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody06"]
@@ -278,7 +272,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody07/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody07/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody07/CollisionShape"
-linha = 2
 coluna = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody07"]
@@ -310,7 +303,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody08/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody08/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody08/CollisionShape"
-linha = 2
 coluna = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody08"]
@@ -342,7 +334,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody09/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody09/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody09/CollisionShape"
-linha = 2
 coluna = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody09"]
@@ -374,7 +365,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody10/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody10/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody10/CollisionShape"
-linha = 2
 coluna = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody10"]
@@ -406,7 +396,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody11/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody11/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody11/CollisionShape"
-linha = 3
 coluna = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody11"]
@@ -438,7 +427,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody12/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody12/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody12/CollisionShape"
-linha = 3
 coluna = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody12"]
@@ -470,7 +458,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody13/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody13/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody13/CollisionShape"
-linha = 3
 coluna = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody13"]
@@ -502,7 +489,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody14/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody14/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody14/CollisionShape"
-linha = 3
 coluna = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody14"]
@@ -534,7 +520,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody15/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody15/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody15/CollisionShape"
-linha = 3
 coluna = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody15"]
@@ -566,7 +551,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody16/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody16/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody16/CollisionShape"
-linha = 4
 coluna = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody16"]
@@ -598,7 +582,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody17/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody17/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody17/CollisionShape"
-linha = 4
 coluna = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody17"]
@@ -630,7 +613,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody18/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody18/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody18/CollisionShape"
-linha = 4
 coluna = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody18"]
@@ -662,7 +644,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody19/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody19/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody19/CollisionShape"
-linha = 4
 coluna = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody19"]
@@ -694,7 +675,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody20/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody20/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody20/CollisionShape"
-linha = 4
 coluna = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody20"]
@@ -726,7 +706,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody21/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody21/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody21/CollisionShape"
-linha = 5
 coluna = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody21"]
@@ -758,7 +737,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody22/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody22/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody22/CollisionShape"
-linha = 5
 coluna = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody22"]
@@ -790,7 +768,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody23/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody23/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody23/CollisionShape"
-linha = 5
 coluna = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody23"]
@@ -822,7 +799,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody24/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody24/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody24/CollisionShape"
-linha = 5
 coluna = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody24"]
@@ -854,7 +830,6 @@ nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Vie
 caminho_borda_verde = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody25/CollisionShape/BordaVerde"
 caminho_forma = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody25/CollisionShape/Bloco"
 caminho_colisao = "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody25/CollisionShape"
-linha = 5
 coluna = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody25"]

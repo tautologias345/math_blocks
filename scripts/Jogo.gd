@@ -42,7 +42,7 @@ func _ready():
 		contador1 += 1
 	contador1 = 0
 	while contador1 < 25:
-		if contador1 in get_node(nodos[contador1]).blocos_queda && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC:
+		if contador1 in get_node(nodos[contador1]).blocos_queda && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && get_node(nodos[contador1]).linha == 0:
 			get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
 		contador1 += 1
 	var materiais = []
@@ -155,6 +155,21 @@ func linhas_inteiras():
 	return (quantidade_linha_quatro == 5 && quantidade_linha_tres == 5 && quantidade_linha_dois == 5 && quantidade_linha_um == 5) || (quantidade_linha_quatro == 0 && quantidade_linha_tres == 5 && quantidade_linha_dois == 5 && quantidade_linha_um == 5) || (quantidade_linha_quatro == 0 && quantidade_linha_tres == 0 && quantidade_linha_dois == 5 && quantidade_linha_um == 5) || (quantidade_linha_quatro == 0 && quantidade_linha_tres == 0 && quantidade_linha_dois == 0 && quantidade_linha_um == 5)
 
 
+func quais_podem_selecionar():
+	var contador1 = 0
+	var contador2 = 0
+	var mat = []
+	while contador1 < 5:
+		mat[contador1] = []
+		contador1 += 1
+	while contador1 < 5:
+		while contador2 < 5:
+			mat[contador1][contador2] = false
+			contador2 += 1
+		contador1 += 1
+	return mat
+
+
 func tela_cheia():
 	if get_node(nodos[0]).pode_selecionar && get_node(nodos[1]).pode_selecionar && get_node(nodos[2]).pode_selecionar && get_node(nodos[3]).pode_selecionar && get_node(nodos[4]).pode_selecionar:
 		if get_node(nodos[5]).pode_selecionar && get_node(nodos[6]).pode_selecionar && get_node(nodos[7]).pode_selecionar && get_node(nodos[8]).pode_selecionar && get_node(nodos[9]).pode_selecionar:
@@ -230,30 +245,31 @@ func _input(event):
 				contador1 += 1
 			var contador2 = 0
 			var a = true
+			contador1 = 0
 			while contador1 < 25:
-				if get_node(nodos[contador1]).pode_selecionar && get_node(nodos[contador1]).linhas_inteiras():
+				if get_node(nodos[contador1]).linhas_inteiras():
 					if get_node(nodos[contador1]).numero_linhas() == 4 && a:
 						contador2 = 0
 						while contador2 < 25:
-							if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador2]).mode == RigidBody.MODE_STATIC && get_node(nodos[contador2]).linha == 0:
+							if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador2]).linha == 0:
 								get_node(nodos[contador1]).blocos_queda.append(contador2)
 							contador2 += 1
 					elif get_node(nodos[contador1]).numero_linhas() == 3 && a:
 						contador2 = 0
 						while contador2 < 25:
-							if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador2]).mode == RigidBody.MODE_STATIC && get_node(nodos[contador2]).linha == 0:
+							if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador2]).linha == 0:
 								get_node(nodos[contador1]).blocos_queda.append(contador2)
 							contador2 += 1
 					elif get_node(nodos[contador1]).numero_linhas() == 2 && a:
 						contador2 = 0
 						while contador2 < 25:
-							if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador2]).mode == RigidBody.MODE_STATIC && get_node(nodos[contador2]).linha == 0:
+							if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador2]).linha == 0:
 								get_node(nodos[contador1]).blocos_queda.append(contador2)
 							contador2 += 1
 					elif get_node(nodos[contador1]).numero_linhas() == 1 && a:
 						contador2 = 0
 						while contador2 < 25:
-							if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador2]).mode == RigidBody.MODE_STATIC && get_node(nodos[contador2]).linha == 0:
+							if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador2]).linha == 0:
 								get_node(nodos[contador1]).blocos_queda.append(contador2)
 							contador2 += 1
 				contador1 += 1
@@ -293,10 +309,6 @@ func _input(event):
 					get_node(nodos[contador1]).translation = Vector3(0, 0, 0)
 					get_node(nodos[contador1]).pode_selecionar = false
 					get_node(nodos[contador1]).eliminado = true
-				contador1 += 1
-			contador1 = 0
-			while contador1 < 25:
-				get_node(nodos[contador1]).blocos_queda.clear()
 				contador1 += 1
 			contador1 = 0
 			var contador2 = 0
@@ -341,11 +353,7 @@ func _input(event):
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 			contador1 = 0
 			while contador1 < 25:
-				get_node(nodos[contador1]).numero_aneis_selecionados = 0
-				if contador1 == 0:
-					get_node(nodos[contador1]).numero_aneis_requerido = randi() % multiplicidade_total() + 1
-				else:
-					get_node(nodos[contador1]).numero_aneis_requerido = get_node(nodos[contador1 - 1]).numero_aneis_requerido
+				get_node(nodos[contador1]).numero_aneis_requerido = 1
 				contador1 += 1
 			#removeu todos os blocos da tela para passar de fase
 			contador1 = 0
@@ -439,3 +447,5 @@ func _on_RigidBody_body_entered(body):
 			self.y_min = 216
 			self.y_max = 253
 			self.linha = 5
+		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
+		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").start()
