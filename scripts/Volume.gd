@@ -131,3 +131,5 @@ func _on_SFXVolume_item_selected(index):
 		17:
 			db_sfx = -80
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").set_volume_db(db_sfx)
+
+

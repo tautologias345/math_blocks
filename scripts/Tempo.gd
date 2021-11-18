@@ -12,12 +12,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
 func _process(delta):
 	pass
-
-#func _process(delta):
-#	pass
 
 
 #acaba o tempo de 10 segundos do jogo
@@ -26,46 +22,471 @@ func _on_TimerJogo_timeout():
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 	var contador1 = 0
 	while contador1 < 25:
-		get_node(nodos[contador1]).blocos_queda.clear()
-		contador1 += 1
-	var contador2 = 0
-	var a = true
-	contador1 = 0
-	while contador1 < 25:
-		if get_node(nodos[contador1]).linhas_inteiras():
-			if get_node(nodos[contador1]).numero_linhas() == 4 && a:
-				contador2 = 0
-				while contador2 < 25:
-					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador2]).linha == 0:
-						get_node(nodos[contador1]).blocos_queda.append(contador2)
-					contador2 += 1
-			elif get_node(nodos[contador1]).numero_linhas() == 3 && a:
-				contador2 = 0
-				while contador2 < 25:
-					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador2]).linha == 0:
-						get_node(nodos[contador1]).blocos_queda.append(contador2)
-					contador2 += 1
-			elif get_node(nodos[contador1]).numero_linhas() == 2 && a:
-				contador2 = 0
-				while contador2 < 25:
-					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador2]).linha == 0:
-						get_node(nodos[contador1]).blocos_queda.append(contador2)
-					contador2 += 1
-			elif get_node(nodos[contador1]).numero_linhas() == 1 && a:
-				contador2 = 0
-				while contador2 < 25:
-					if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador2]).linha == 0:
-						get_node(nodos[contador1]).blocos_queda.append(contador2)
-					contador2 += 1
-		contador1 += 1
-	contador1 = 0
-	while contador1 < 25:
-		while get_node(nodos[contador1]).blocos_queda.size() > 5:
-			get_node(nodos[contador1]).blocos_queda.remove(5)
-		contador1 += 1
-	while contador1 < 25:
-		if contador1 in get_node(nodos[contador1]).blocos_queda && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && get_node(nodos[contador1]).linha == 0:
-			get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		if !get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && !get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && !get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && !get_node(nodos[contador1]).quais_podem_selecionar()[23] && get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[20] && get_node(nodos[contador1]).quais_podem_selecionar()[21] && get_node(nodos[contador1]).quais_podem_selecionar()[22] && get_node(nodos[contador1]).quais_podem_selecionar()[23] && !get_node(nodos[contador1]).quais_podem_selecionar()[24]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && !get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && !get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && !get_node(nodos[contador1]).quais_podem_selecionar()[18] && get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[15] && get_node(nodos[contador1]).quais_podem_selecionar()[16] && get_node(nodos[contador1]).quais_podem_selecionar()[17] && get_node(nodos[contador1]).quais_podem_selecionar()[18] && !get_node(nodos[contador1]).quais_podem_selecionar()[19]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && !get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && !get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && !get_node(nodos[contador1]).quais_podem_selecionar()[13] && get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[10] && get_node(nodos[contador1]).quais_podem_selecionar()[11] && get_node(nodos[contador1]).quais_podem_selecionar()[12] && get_node(nodos[contador1]).quais_podem_selecionar()[13] && !get_node(nodos[contador1]).quais_podem_selecionar()[14]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && !get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && !get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && !get_node(nodos[contador1]).quais_podem_selecionar()[8] && get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[5] && get_node(nodos[contador1]).quais_podem_selecionar()[6] && get_node(nodos[contador1]).quais_podem_selecionar()[7] && get_node(nodos[contador1]).quais_podem_selecionar()[8] && !get_node(nodos[contador1]).quais_podem_selecionar()[9]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif !get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && !get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 2):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && !get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 3):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && !get_node(nodos[contador1]).quais_podem_selecionar()[3] && get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 4):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+		elif get_node(nodos[contador1]).quais_podem_selecionar()[0] && get_node(nodos[contador1]).quais_podem_selecionar()[1] && get_node(nodos[contador1]).quais_podem_selecionar()[2] && get_node(nodos[contador1]).quais_podem_selecionar()[3] && !get_node(nodos[contador1]).quais_podem_selecionar()[4]:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 5):
+				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
 		contador1 += 1
 	contador1 = 0
 	while contador1 < 25:
@@ -78,47 +499,47 @@ func _on_TimerJogo_timeout():
 		if get_node(nodos[contador1]).numero_aneis_requerido < 10:
 			if get_node(nodos[contador1]).pontuacao < 10:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 			elif get_node(nodos[contador1]).pontuacao < 100:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 			else:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 		else:
 			if get_node(nodos[contador1]).pontuacao < 10:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 			elif get_node(nodos[contador1]).pontuacao < 100:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 			else:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/Info").set_text(get_node(nodos[contador1]).info_text)
 		contador1 += 1
 
@@ -164,47 +585,47 @@ func _on_TimerResult_timeout():
 		if get_node(nodos[contador1]).numero_aneis_requerido < 10:
 			if get_node(nodos[contador1]).pontuacao < 10:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 			elif get_node(nodos[contador1]).pontuacao < 100:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 			else:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: 0" + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 		else:
 			if get_node(nodos[contador1]).pontuacao < 10:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 00" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 			elif get_node(nodos[contador1]).pontuacao < 100:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: 0" + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 			else:
 				if get_node(nodos[contador1]).erros < 10:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 00" + str(get_node(nodos[contador1]).erros)
 				elif get_node(nodos[contador1]).erros < 100:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: 0" + str(get_node(nodos[contador1]).erros)
 				else:
-					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
+					get_node(nodos[contador1]).info_text = "Número de anéis a ser removido: " + str(get_node(nodos[contador1]).numero_aneis_requerido) + "\n\n\n\nFase " + str(get_node(nodos[contador1]).fase) + "\n\nPontuação: " + str(get_node(nodos[contador1]).pontuacao) + "\n\nErros: " + str(get_node(nodos[contador1]).erros)
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/Info").set_text(get_node(nodos[contador1]).info_text)
 		contador1 += 1
 

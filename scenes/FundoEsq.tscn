@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Volume.gd" type="Script" id=1]
 [ext_resource path="res://FundoJogo.png" type="Texture" id=2]
 [ext_resource path="res://arial.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://sfx/inicio jogo.ogg" type="AudioStream" id=4]
+[ext_resource path="res://scripts/EmbaralharBlocos.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -15,6 +16,10 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
 font_data = ExtResource( 3 )
 
 [node name="FundoEsq" type="Control"]
@@ -39,6 +44,8 @@ margin_bottom = -374.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Número de anéis a ser removido: 01
+
+
 
 Fase 1
 
@@ -85,4 +92,17 @@ __meta__ = {
 stream = ExtResource( 4 )
 autoplay = true
 
+[node name="Embaralhar Blocos" type="Button" parent="."]
+margin_left = 15.0
+margin_top = 97.0
+margin_right = 332.0
+margin_bottom = 131.0
+custom_fonts/font = SubResource( 4 )
+text = "Mudar Número de Anéis Requerido"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="item_selected" from="SFXVolume" to="SFXVolume" method="_on_SFXVolume_item_selected"]
+[connection signal="button_up" from="Embaralhar Blocos" to="Embaralhar Blocos" method="embaralhar_blocos"]
