@@ -4,17 +4,11 @@ extends Timer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var nodos = []
+export var nodos = ["/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody01", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody02", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody03", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody04", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody05", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody06", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody07", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody08", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody09", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody10", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody11", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody12", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody13", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody14", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody15", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody16", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody17", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody18", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody19", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody20", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody21", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody22", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody23", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody24", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody25"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	nodos.append_array(["/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody01", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody02", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody03", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody04", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody05"])
-	nodos.append_array(["/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody06", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody07", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody08", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody09", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody10"])
-	nodos.append_array(["/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody11", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody12", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody13", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody14", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody15"])
-	nodos.append_array(["/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody16", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody17", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody18", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody19", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody20"])
-	nodos.append_array(["/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody21", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody22", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody23", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody24", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody25"])
-	while nodos.size() > 25:
-		nodos.remove(25)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,23 +20,23 @@ func _process(delta):
 func _on_TimerJogo_timeout():
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/caem blocos topo.ogg")
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
-	var contador2 = 0
+	var contador12 = 0
 	var a = true
 	var contador1 = 0
 	while contador1 < 25:
-		contador2 = 0
-		while contador2 < 25:
-			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador2] && get_node(nodos[contador1]).coluna == get_node(nodos[contador2]).coluna:
+		contador12 = 0
+		while contador12 < 25:
+			if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 10.071 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador12] && get_node(nodos[contador1]).coluna == get_node(nodos[contador12]).coluna:
 				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
-			elif get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador2] && get_node(nodos[contador1]).coluna == get_node(nodos[contador2]).coluna:
+			elif get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 9.197 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador12] && get_node(nodos[contador1]).coluna == get_node(nodos[contador12]).coluna:
 				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
-			elif get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador2] && get_node(nodos[contador1]).coluna == get_node(nodos[contador2]).coluna:
+			elif get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 8.306 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador12] && get_node(nodos[contador1]).coluna == get_node(nodos[contador12]).coluna:
 				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
-			elif get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador2] && get_node(nodos[contador1]).coluna == get_node(nodos[contador2]).coluna:
+			elif get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 7.328 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador12] && get_node(nodos[contador1]).coluna == get_node(nodos[contador12]).coluna:
 				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
-			elif get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador2] && get_node(nodos[contador1]).coluna == get_node(nodos[contador2]).coluna:
+			elif get_node(get_node(nodos[contador1]).caminho_colisao).translation.y == 6.367 && get_node(nodos[contador1]).linha == 0 && get_node(nodos[contador1]).mode == RigidBody.MODE_STATIC && !get_node(nodos[0]).quais_podem_selecionar()[contador12] && get_node(nodos[contador1]).coluna == get_node(nodos[contador12]).coluna:
 				get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
-			contador2 += 1
+			contador12 += 1
 		contador1 += 1
 	contador1 = 0
 	while contador1 < 25:
@@ -102,14 +96,14 @@ func _on_TimerJogo_timeout():
 #tempo da frase de resultado de 5 segundos acaba
 func _on_TimerResult_timeout():
 	var contador1 = 0
-	var contador2 = 0
+	var contador12 = 0
 	if get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Parabéns! Você removeu todos os blocos da tela do jogo! Então você passou para a get_node(nodos[contador1]).fase seguinte! O jogo agora fica um pouco mais difícil!":
 		contador1 = 0
 		while contador1 < 25:
-			while contador2 < 25:
-				if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y == 6.367:
-					get_node(nodos[contador1]).blocos_queda.append(contador2)
-				contador2 += 1
+			while contador12 < 25:
+				if get_node(get_node(nodos[contador12]).caminho_colisao).translation.y == 6.367:
+					get_node(nodos[contador1]).blocos_queda.append(contador12)
+				contador12 += 1
 			contador1 += 1
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Você ainda pode selecionar mais blocos, pois a soma atual das multiplicidades < o número a ser removido!"
