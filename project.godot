@@ -12,6 +12,7 @@ config_version=4
 
 config/name="Math Blocks"
 run/main_scene="res://scenes/Menu.tscn"
+config/custom_user_dir_name="material_maker"
 config/icon="res://Godot_icon.png"
 
 [display]
@@ -38,6 +39,8 @@ fallback="pt_BR"
 [logging]
 
 file_logging/enable_file_logging=true
+file_logging/log_path="res://logs/log.txt"
+file_logging/max_log_files=200
 
 [physics]
 

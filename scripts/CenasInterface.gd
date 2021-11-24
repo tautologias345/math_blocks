@@ -17,8 +17,11 @@ func _process(delta):
 
 
 func _on_Button_Voltar_button_up():
-	$SFX.stream = load("res://sfx/menu creditos idioma instrucoes.ogg") #carrega o efeito sonoro
-	$SFX.play() #toca o efeito sonoro
+	if self == get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Button Voltar"):
+		$BGMStream.stop()
+	else:
+		$SFX.stream = load("res://sfx/menu creditos idioma instrucoes.ogg") #carrega o efeito sonoro
+		$SFX.play() #toca o efeito sonoro
 	get_tree().change_scene("res://scenes/Menu.tscn") #muda a cena
 
 

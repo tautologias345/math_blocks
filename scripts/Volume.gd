@@ -46,7 +46,7 @@ func _ready():
 		self.add_item("0,1250", 15)
 		self.add_item("0,0625", 16)
 		self.add_item("0,0000", 17) #música de fundo com volume 0/16
-		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/BGMStream").set_volume_db(db_bgm)
+		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Button Voltar/BGMStream").set_volume_db(db_bgm)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -91,7 +91,7 @@ func _on_BGMVolume_item_selected(index):
 			db_bgm = -75
 		17:
 			db_bgm = -80 #volume nulo
-	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/BGMStream").set_volume_db(db_bgm)
+	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Button Voltar/BGMStream").set_volume_db(db_bgm)
 
 #seleciona o volume dos efeitos sonoros
 func _on_SFXVolume_item_selected(index):

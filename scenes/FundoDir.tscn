@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Volume.gd" type="Script" id=1]
 [ext_resource path="res://FundoJogo.png" type="Texture" id=2]
 [ext_resource path="res://arial.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://bgm.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scripts/Tempo.gd" type="Script" id=5]
+[ext_resource path="res://scripts/CenasInterface.gd" type="Script" id=6]
+[ext_resource path="res://custom_font.tres" type="DynamicFont" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -76,15 +78,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BGMStream" type="AudioStreamPlayer" parent="."]
+[node name="TimerResult" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+script = ExtResource( 5 )
+
+[node name="Button Voltar" type="Button" parent="."]
+margin_left = 135.0
+margin_top = 543.0
+margin_right = 208.0
+margin_bottom = 577.0
+custom_fonts/font = ExtResource( 7 )
+text = "Voltar"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BGMStream" type="AudioStreamPlayer" parent="Button Voltar"]
 stream = ExtResource( 4 )
 autoplay = true
 
-[node name="TimerResult" type="Timer" parent="."]
-wait_time = 8.0
-one_shot = true
-script = ExtResource( 5 )
-nodos = [ "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody01", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody02", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody03", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody04", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody05", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody06", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody07", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody08", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody09", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody10", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody11", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody12", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody13", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody14", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody15", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody16", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody17", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody18", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody19", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody20", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody21", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody22", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody23", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody24", "/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/RigidBody25" ]
-
 [connection signal="item_selected" from="BGMVolume" to="BGMVolume" method="_on_BGMVolume_item_selected"]
 [connection signal="timeout" from="TimerResult" to="TimerResult" method="_on_TimerResult_timeout"]
+[connection signal="button_up" from="Button Voltar" to="Button Voltar" method="_on_Button_Voltar_button_up"]

@@ -21,6 +21,7 @@ func embaralhar_blocos():
 	var contador1 = 0
 	while contador1 < 25:
 		if contador1 == 0:
+			get_node(nodos[contador1]).numero_aneis_requerido = randi() % get_node(nodos[contador1]).multiplicidade_total() + 1
 			while get_node(nodos[contador1]).numero_aneis_requerido < get_node(nodos[contador1]).multiplicidade_minima():
 				get_node(nodos[contador1]).numero_aneis_requerido = randi() % get_node(nodos[contador1]).multiplicidade_total() + 1
 		else:
