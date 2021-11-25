@@ -86,7 +86,7 @@ func _ready():
 			get_node(nodos[contador1]).coluna = 5
 		contador1 += 1
 	contador1 = 0
-	while contador1 < 5:
+	while contador1 < 25:
 		get_node(nodos[contador1]).blocos_queda = [0, 1, 2, 3, 4]
 		contador1 += 1
 	contador1 = 0
@@ -378,6 +378,15 @@ func _input(event):
 			while contador1 < 25:
 				get_node(nodos[contador1]).pontuacao += numero_aneis_selecionados
 				contador1 += 1
+			contador1 = 0
+			while contador1 < 25:
+				if contador1 == 0:
+					get_node(nodos[contador1]).numero_aneis_requerido = randi() % get_node(nodos[contador1]).multiplicidade_total() + 1
+					while get_node(nodos[contador1]).numero_aneis_requerido < get_node(nodos[contador1]).multiplicidade_minima():
+						get_node(nodos[contador1]).numero_aneis_requerido = randi() % get_node(nodos[contador1]).multiplicidade_total() + 1
+				else:
+					get_node(nodos[contador1]).numero_aneis_requerido = get_node(nodos[contador1 - 1]).numero_aneis_requerido
+				contador1 += 1
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop() #para de contar os 10 segundos da queda dos blocos
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Parabéns! Você fechou a seleção dos blocos com a soma das multiplicidades = o número a ser removido! Então você removeu os blocos selecionados!"
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start() #inicia a contagem de 5 segundos da frase de resultado
@@ -482,35 +491,17 @@ func _on_RigidBody_body_entered(body):
 	var contador1 = 0
 	var contador2 = 0
 	var contador3 = 0
-	var contador4 = 0
 	if get_node(nodos[0]).linhas_inteiras():
 		contador1 = 0
 		while contador1 < 25:
-			get_node(nodos[contador1]).blocos_queda.clear()
-			contador1 += 1
-		contador1 = 0
-		while contador1 < 25:
-			contador2 = 0
-			while contador2 < 25:
-				if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y < 7.5 && get_node(nodos[contador2]).linha == 0 && get_node(nodos[contador2]).mode == RigidBody.MODE_STATIC && get_node(nodos[0]).numero_linhas() == 1:
-					get_node(nodos[contador1]).blocos_queda.append(contador2)
-				elif get_node(get_node(nodos[contador2]).caminho_colisao).translation.y < 8.5 && get_node(nodos[contador2]).linha == 0 && get_node(nodos[contador2]).mode == RigidBody.MODE_STATIC && get_node(nodos[0]).numero_linhas() == 2:
-					get_node(nodos[contador1]).blocos_queda.append(contador2)
-				elif get_node(get_node(nodos[contador2]).caminho_colisao).translation.y < 9.5 && get_node(nodos[contador2]).linha == 0 && get_node(nodos[contador2]).mode == RigidBody.MODE_STATIC && get_node(nodos[0]).numero_linhas() == 3:
-					get_node(nodos[contador1]).blocos_queda.append(contador2)
-				elif get_node(get_node(nodos[contador2]).caminho_colisao).translation.y < 10.5 && get_node(nodos[contador2]).linha == 0 && get_node(nodos[contador2]).mode == RigidBody.MODE_STATIC && get_node(nodos[0]).numero_linhas() == 4:
-					get_node(nodos[contador1]).blocos_queda.append(contador2)
-				contador2 += 1
-			contador1 += 1
-		contador1 = 0
-		while contador1 < 25:
-			if get_node(nodos[contador1]).blocos_queda.size() > 5:
-				contador2 = 0
-				while contador2 < get_node(nodos[contador1]).blocos_queda.size():
-					if contador2 + 1 < get_node(nodos[contador1]).blocos_queda.size():
-						if get_node(nodos[contador1]).blocos_queda[contador2] == get_node(nodos[contador1]).blocos_queda[contador2 + 1]:
-							get_node(nodos[contador1]).blocos_queda.erase(get_node(nodos[contador1]).blocos_queda[contador2 + 1])
-					contador2 += 1
+			if get_node(nodos[contador1]).blocos_queda == [0, 1, 2, 3, 4] && get_node(nodos[0]).numero_linhas() == 1:
+				get_node(nodos[contador1]).blocos_queda = [5, 6, 7, 8, 9]
+			elif get_node(nodos[contador1]).blocos_queda == [5, 6, 7, 8, 9] && get_node(nodos[0]).numero_linhas() == 2:
+				get_node(nodos[contador1]).blocos_queda = [10, 11, 12, 13, 14]
+			elif get_node(nodos[contador1]).blocos_queda == [10, 11, 12, 13, 14] && get_node(nodos[0]).numero_linhas() == 3:
+				get_node(nodos[contador1]).blocos_queda = [15, 16, 17, 18, 19]
+			elif get_node(nodos[contador1]).blocos_queda == [15, 16, 17, 18, 19] && get_node(nodos[0]).numero_linhas() == 4:
+				get_node(nodos[contador1]).blocos_queda = [20, 21, 22, 23, 24]
 			contador1 += 1
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").start()
