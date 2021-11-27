@@ -359,11 +359,22 @@ func _input(event):
 			while contador1 < 25:
 				if get_node(get_node(nodos[contador1]).caminho_borda_verde).visible:
 					get_node(nodos[contador1]).mode = RigidBody.MODE_STATIC
+					get_node(nodos[contador1]).translation = Vector3(0, 0, 0)
+					match get_node(nodos[contador1]).linha:
+						1:
+							get_node(get_node(nodos[contador1]).caminho_colisao).translation = Vector3(-1.041, 6.367, -2.5)
+						2:
+							get_node(get_node(nodos[contador1]).caminho_colisao).translation = Vector3(-1.041, 7.328, -2.5)
+						3:
+							get_node(get_node(nodos[contador1]).caminho_colisao).translation = Vector3(-1.041, 8.306, -2.5)
+						4:
+							get_node(get_node(nodos[contador1]).caminho_colisao).translation = Vector3(-1.041, 9.197, -2.5)
+						5:
+							get_node(get_node(nodos[contador1]).caminho_colisao).translation = Vector3(-1.041, 10.071, -2.5)
 					get_node(nodos[contador1]).linha = 0
 					get_node(nodos[contador1]).y_min = -12
 					get_node(nodos[contador1]).y_max = -8
 					get_node(get_node(nodos[contador1]).caminho_borda_verde).hide()
-					get_node(nodos[contador1]).translation = Vector3(0, 0, 0)
 					get_node(nodos[contador1]).pode_selecionar = false
 					contador2 = 0
 					while contador2 < 25:
