@@ -15,13 +15,13 @@ export var x_max = 0 #posição horizontal máxima do ponteiro do mouse
 export var y_min = 0 #posição vertical mínima do ponteiro do mouse
 export var y_max = 0 #posição vertical máxima do ponteiro do mouse
 export var multiplicidade = 0
-export var blocos_queda = [-1, -1, -1, -1, -1]
-var numero_aneis_requerido = 1
-var numero_aneis_selecionados = 0
-var fase = 1
-var pontuacao = 0
-var erros = 0
-var info_text = "" #alterar a informação do jogo com a formatação adequada
+export var blocos_queda = []
+export var numero_aneis_requerido = 1
+export var numero_aneis_selecionados = 0
+export var fase = 1
+export var pontuacao = 0
+export var erros = 0
+export var info_text = "" #alterar a informação do jogo com a formatação adequada
 
 
 # entra na cena
@@ -91,12 +91,9 @@ func _ready():
 		contador1 += 1
 	contador1 = 0
 	contador2 = 0
-	while contador1 < 5:
-		contador2 = 0
-		while contador2 < 25:
-			if contador2 in get_node(nodos[contador1]).blocos_queda:
-				get_node(nodos[contador2]).mode = RigidBody.MODE_RIGID
-			contador2 += 1
+	while contador1 < 25:
+		if contador1 in get_node(nodos[0]).blocos_queda:
+			get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
 		contador1 += 1
 
 
@@ -317,15 +314,17 @@ func _input(event):
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/desseleciona um bloco.ogg")
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 			get_node(self.caminho_borda_verde).hide()
+			var multi = self.multiplicidade
 			while contador1 < 25:
-				get_node(nodos[contador1]).numero_aneis_selecionados -= self.multiplicidade
+				get_node(nodos[contador1]).numero_aneis_selecionados -= multi
 				contador1 += 1
 		else:
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/seleciona um bloco.ogg")
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 			get_node(self.caminho_borda_verde).show()
+			var multi = self.multiplicidade
 			while contador1 < 25:
-				get_node(nodos[contador1]).numero_aneis_selecionados += self.multiplicidade
+				get_node(nodos[contador1]).numero_aneis_selecionados += multi
 				contador1 += 1
 		if numero_aneis_selecionados > numero_aneis_requerido: #caem imediatamente os blocos
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").stop()
@@ -333,13 +332,9 @@ func _input(event):
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/caem blocos topo.ogg")
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 			contador1 = 0
-			var contador2 = 0
 			while contador1 < 25:
-				contador2 = 0
-				while contador2 < 25:
-					if contador2 in get_node(nodos[contador1]).blocos_queda:
-						get_node(nodos[contador2]).mode = RigidBody.MODE_RIGID
-					contador2 += 1
+				if contador1 in get_node(nodos[0]).blocos_queda:
+					get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
 				contador1 += 1
 			contador1 = 0
 			while contador1 < 25:
@@ -356,6 +351,11 @@ func _input(event):
 		elif numero_aneis_selecionados == numero_aneis_requerido:
 			contador1 = 0
 			var contador2 = 0
+			if get_node(nodos[0]).linhas_inteiras():
+				while contador1 < 25:
+					get_node(nodos[contador1]).blocos_queda = []
+					contador1 += 1
+			contador1 = 0
 			while contador1 < 25:
 				if get_node(get_node(nodos[contador1]).caminho_borda_verde).visible:
 					get_node(nodos[contador1]).mode = RigidBody.MODE_STATIC
@@ -366,12 +366,8 @@ func _input(event):
 					get_node(nodos[contador1]).translation = Vector3(0, 0, 0)
 					get_node(nodos[contador1]).pode_selecionar = false
 					contador2 = 0
-					var quantos_na_queda = 0 
 					while contador2 < 25:
-						if get_node(nodos[contador2]).coluna == get_node(nodos[contador1]).coluna && get_node(nodos[contador2]).mode == RigidBody.MODE_STATIC && quantos_na_queda == 0:
-							get_node(nodos[contador1]).blocos_queda.clear()
-							get_node(nodos[contador1]).blocos_queda.append(contador2)
-							quantos_na_queda = 1
+						get_node(nodos[contador2]).blocos_queda.append(contador1)
 						contador2 += 1
 				contador1 += 1
 			contador1 = 0
@@ -380,10 +376,12 @@ func _input(event):
 				contador1 += 1
 			contador1 = 0
 			while contador1 < 25:
+				get_node(nodos[contador1]).numero_aneis_selecionados = 0
+				contador1 += 1
+			contador1 = 0
+			while contador1 < 25:
 				if contador1 == 0:
-					get_node(nodos[contador1]).numero_aneis_requerido = randi() % get_node(nodos[contador1]).multiplicidade_total() + 1
-					while get_node(nodos[contador1]).numero_aneis_requerido < get_node(nodos[contador1]).multiplicidade_minima():
-						get_node(nodos[contador1]).numero_aneis_requerido = randi() % get_node(nodos[contador1]).multiplicidade_total() + 1
+					get_node(nodos[contador1]).numero_aneis_requerido = randi() % 16 + 1
 				else:
 					get_node(nodos[contador1]).numero_aneis_requerido = get_node(nodos[contador1 - 1]).numero_aneis_requerido
 				contador1 += 1
@@ -409,8 +407,7 @@ func _input(event):
 					contador1 += 1
 				contador1 = 0
 				while contador1 < 25:
-					if get_node(get_node(nodos[contador1]).caminho_colisao).translation.y >= 5.5 && get_node(nodos[contador1]).linha == 0 && (get_node(nodos[contador1]).coluna == 1 || get_node(nodos[contador1]).coluna == 2 || get_node(nodos[contador1]).coluna == 3 || get_node(nodos[contador1]).coluna == 4 || get_node(nodos[contador1]).coluna == 5):
-						get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
+					get_node(nodos[contador1]).blocos_queda = [0, 1, 2, 3, 4]
 					contador1 += 1
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start()
 				get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/elimina todos blocos tela passa fase.ogg")
@@ -472,36 +469,59 @@ func _on_RigidBody_body_entered(body):
 			self.y_min = 374
 			self.y_max = 405
 			self.linha = 1 
-		elif body.linha == 1:
+		elif body.linha == 1 && get_node(body.caminho_colisao).translation.y >= 5.5 && get_node(body.caminho_colisao).translation.y < 6.5 && self.linha == 0 && get_node(self.caminho_colisao).translation.y >= 6.5 && get_node(self.caminho_colisao).translation.y < 7.5:
 			self.y_min = 333
 			self.y_max = 367
 			self.linha = 2
-		elif body.linha == 2:
+		elif body.linha == 2 && get_node(body.caminho_colisao).translation.y >= 6.5 && get_node(body.caminho_colisao).translation.y < 7.5 && self.linha == 0 && get_node(self.caminho_colisao).translation.y >= 7.5 && get_node(self.caminho_colisao).translation.y < 8.5:
 			self.y_min = 294
 			self.y_max = 329
 			self.linha = 3
-		elif body.linha == 3:
+		elif body.linha == 3 && get_node(body.caminho_colisao).translation.y >= 7.5 && get_node(body.caminho_colisao).translation.y < 8.5 && self.linha == 0 && get_node(self.caminho_colisao).translation.y >= 8.5 && get_node(self.caminho_colisao).translation.y < 9.5:
 			self.y_min = 255
 			self.y_max = 291
 			self.linha = 4
-		elif body.linha == 4:
+		elif body.linha == 4 && get_node(body.caminho_colisao).translation.y >= 8.5 && get_node(body.caminho_colisao).translation.y < 9.5 && self.linha == 0 && get_node(self.caminho_colisao).translation.y >= 9.5 && get_node(self.caminho_colisao).translation.y < 10.5:
 			self.y_min = 216
 			self.y_max = 253
 			self.linha = 5
 	var contador1 = 0
 	var contador2 = 0
-	var contador3 = 0
-	if get_node(nodos[0]).linhas_inteiras():
-		contador1 = 0
+	if !get_node(nodos[0]).linhas_inteiras():
 		while contador1 < 25:
-			if get_node(nodos[contador1]).blocos_queda == [0, 1, 2, 3, 4] && get_node(nodos[0]).numero_linhas() == 1:
-				get_node(nodos[contador1]).blocos_queda = [5, 6, 7, 8, 9]
-			elif get_node(nodos[contador1]).blocos_queda == [5, 6, 7, 8, 9] && get_node(nodos[0]).numero_linhas() == 2:
-				get_node(nodos[contador1]).blocos_queda = [10, 11, 12, 13, 14]
-			elif get_node(nodos[contador1]).blocos_queda == [10, 11, 12, 13, 14] && get_node(nodos[0]).numero_linhas() == 3:
-				get_node(nodos[contador1]).blocos_queda = [15, 16, 17, 18, 19]
-			elif get_node(nodos[contador1]).blocos_queda == [15, 16, 17, 18, 19] && get_node(nodos[0]).numero_linhas() == 4:
-				get_node(nodos[contador1]).blocos_queda = [20, 21, 22, 23, 24]
+			if get_node(nodos[contador1]) == self:
+				contador2 = 0
+				while contador2 < 25:
+					get_node(nodos[contador2]).blocos_queda.erase(contador1)
+					contador2 += 1
 			contador1 += 1
+	contador1 = 0
+	if get_node(nodos[0]).linhas_inteiras():
+		if get_node(nodos[0]).numero_linhas() == 1:
+			contador1 = 0
+			while contador1 < 25:
+				get_node(nodos[contador1]).blocos_queda = [5, 6, 7, 8, 9]
+				contador1 += 1
+		elif get_node(nodos[0]).numero_linhas() == 2:
+			contador1 = 0
+			while contador1 < 25:
+				get_node(nodos[contador1]).blocos_queda = [10, 11, 12, 13, 14]
+				contador1 += 1
+		elif get_node(nodos[0]).numero_linhas() == 3:
+			contador1 = 0
+			while contador1 < 25:
+				get_node(nodos[contador1]).blocos_queda = [15, 16, 17, 18, 19]
+				contador1 += 1
+		elif get_node(nodos[0]).numero_linhas() == 4:
+			contador1 = 0
+			while contador1 < 25:
+				get_node(nodos[contador1]).blocos_queda = [20, 21, 22, 23, 24]
+				contador1 += 1
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").start()
+
+
+func _on_RigidBody_body_exited(body):
+	if !(body is StaticBody):
+		if self.pode_selecionar:
+			self.mode = RigidBody.MODE_RIGID

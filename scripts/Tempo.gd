@@ -21,13 +21,9 @@ func _on_TimerJogo_timeout():
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").stream = load("res://sfx/caem blocos topo.ogg")
 	get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 	var contador1 = 0
-	var contador2 = 0
 	while contador1 < 25:
-		contador2 = 0
-		while contador2 < 25:
-			if contador2 in get_node(nodos[contador1]).blocos_queda:
-				get_node(nodos[contador2]).mode = RigidBody.MODE_RIGID
-			contador2 += 1
+		if contador1 in get_node(nodos[0]).blocos_queda:
+			get_node(nodos[contador1]).mode = RigidBody.MODE_RIGID
 		contador1 += 1
 	contador1 = 0
 	while contador1 < 25:
@@ -92,10 +88,7 @@ func _on_TimerResult_timeout():
 	if get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Parabéns! Você removeu todos os blocos da tela do jogo! Então você passou para a get_node(nodos[contador1]).fase seguinte! O jogo agora fica um pouco mais difícil!":
 		contador1 = 0
 		while contador1 < 25:
-			while contador2 < 25:
-				if get_node(get_node(nodos[contador2]).caminho_colisao).translation.y >= 5.5:
-					get_node(nodos[contador1]).blocos_queda.append(contador2)
-				contador2 += 1
+			get_node(nodos[contador1]).blocos_queda = [0, 1, 2, 3, 4]
 			contador1 += 1
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Você ainda pode selecionar mais blocos, pois a soma atual das multiplicidades < o número a ser removido!"
@@ -105,6 +98,7 @@ func _on_TimerResult_timeout():
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer1/Viewport1/FundoEsq/SFXStream").play()
 		get_tree().change_scene("res://scenes/Menu.tscn")
 	elif get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Que pena! Você esperou 10 segundos após a última adição dos blocos na tela! Então o jogo adicionou mais blocos à tela!" || get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Que pena! Você selecionou blocos com a soma das multiplicidades > o número a ser removido! Então imediatamente o jogo adicionou mais blocos à tela!":
+		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").stop()
 		#se todos os blocos podem ser selecionados
 		contador1 = 0
 		var tela_cheia = false
@@ -118,6 +112,7 @@ func _on_TimerResult_timeout():
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/TimerResult").start()
 		else:
 			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Você ainda pode selecionar mais blocos, pois a soma atual das multiplicidades < o número a ser removido!"
+			get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").start()
 	elif get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text == "Parabéns! Você fechou a seleção dos blocos com a soma das multiplicidades = o número a ser removido! Então você removeu os blocos selecionados!":
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer3/Viewport3/FundoDir/Result").text = "Você ainda pode selecionar mais blocos, pois a soma atual das multiplicidades < o número a ser removido!"
 		get_node("/root/ViewportTriplo/CanvasLayer/GridContainer/ViewportContainer2/Viewport2/Jogo/TimerJogo").start()
